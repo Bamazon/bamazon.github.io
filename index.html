@@ -1,90 +1,128 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<style>
-body {
-	font-family: "Arial", Sans-serif;
+	<head>
+		<meta charset="UTF-8">
+		<link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
+<style>body {
+	font-family: "Maven Pro";
+	background-color: #161d28;
+}
+
+a {
+	text-decoration: none;
 }
 
 .line {
 	display: block;
-}
-.button {
-    background-repeat: no-repeat;
-    background-position: left;
-	background-size: auto 50px;
-	font-variant: small-caps;
-    background-color: lightgrey;
-    border: 1px solid grey;
-    color: black;
-    padding: 10px 10px 10px 60px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 36px;
-    margin: 4px 2px;
-    cursor: pointer;
+	border-left: 2px solid white;
 	border-radius: 4px;
+	padding-left: 8px;
+	margin: 8px;
+}
+
+.button {
+	background-color: none;
+	border: 1px solid white;
+	color: white;
+	padding: 5px;
+	text-align: left;
+	display: inline-block;
+	font-size: 32px;
+	cursor: pointer;
+	border-radius: 4px;
+	-webkit-transition: 0.2s;
+	/* Safari */
+	transition: 0.2s;
 }
 
 .button:hover {
-    background-repeat: no-repeat;
-    background-position: left;
-	background-size: auto 50px;
-	font-variant: small-caps;
-    background-color: grey;
-    border: 1px solid grey;
-    color: white;
-    padding: 10px 10px 10px 60px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 36px;
-    margin: 4px 2px;
-    cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid white;
+	color: black;
+	padding: 5px;
+	text-align: left;
+	display: inline-block;
+	font-size: 34px;
+	cursor: pointer;
 	border-radius: 4px;
+	-webkit-transition: 0.2s;
+	/* Safari */
+	transition: 0.2s;
 }
 
-.more {
-	font-variant: small-caps;
-    background-color: lightgrey;
-    border: 1px solid grey;
-    color: black;
-    padding: 10px 10px 10px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 36px;
-    margin: 4px 2px;
-    cursor: pointer;
-	border-radius: 4px;
+.chunk {
+	color: orange;
+	font-weight: bold;
+	font-size: 36px;
+	margin-left: 18px;
 }
 
-.more:hover {
-	font-variant: small-caps;
-    background-color: grey;
-    border: 1px solid grey;
-    color: white;
-    padding: 10px 10px 10px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 36px;
-    margin: 4px 2px;
-    cursor: pointer;
-	border-radius: 4px;
-}
 </style>
-</head>
-<body>
-<div class="line"><a target="_blank" rel="noopener noreferrer" href="https://www.db.bme.hu/adatbazisok/"><div class="button" style="background-image: url('icons/database.png');">Adatbázisok</div></a><a target="_blank" rel="noopener noreferrer" href="http://www.google.com"><div class="more">...</div></a></div>
-<div class="line"><a target="_blank" rel="noopener noreferrer" href="https://fourier.hvt.bme.hu/"><div class="button" style="background-image: url('icons/rendszer.png');">Rendszerelmélet</div></a><a target="_blank" rel="noopener noreferrer" href="http://www.google.com"><div class="more">...</div></a></div>
-<div class="line"><a target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/targyak/BMEVIIIAB00?language=hu"><div class="button" style="background-image: url('icons/java.png');">Programozás alapjai 3</div></a><a target="_blank" rel="noopener noreferrer" href="http://www.google.com"><div class="more">...</div></a></div>
-<div class="line"><a target="_blank" rel="noopener noreferrer" href="http://www.cs.bme.hu/~cscsgy/vsz/"><div class="button" style="background-image: url('icons/valosz.png');">Valószínûségszámítás</div></a><a target="_blank" rel="noopener noreferrer" href="http://www.google.com"><div class="more">...</div></a></div>
-<div class="line"><a target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=221"><div class="button" style="background-image: url('icons/komhal.png');">Kommunikációs hálózatok 1</div></a><a target="_blank" rel="noopener noreferrer" href="http://www.google.com"><div class="more">...</div></a></div>
-<div class="line"><a target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=226"><div class="button" style="background-image: url('icons/code.png');">Kódolástechnika</div></a><a target="_blank" rel="noopener noreferrer" href="http://www.google.com"><div class="more">...</div></a></div>
-<div class="line"><a target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/targyak/BMEVIIIAB01?language=hu"><div class="button" style="background-image: url('icons/szoft.png');">Szoftvertechnológia</div></a><a target="_blank" rel="noopener noreferrer" href="http://www.google.com"><div class="more">...</div></a></div>
-<div class="line"><a target="_blank" rel="noopener noreferrer" href="lab2.zip"><div class="more">Prog - Labor 2</div></a></div>
-</body>
+	</head>
+	<body>
+		<div class="chunk">
+			Tantárgyak
+		</div>
+		<div class="line">
+			<a target="_blank" rel="noopener noreferrer" href="https://www.db.bme.hu/">
+				<div class="button">Adatbázisok</div>
+			</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Adatb%C3%A1zisok">
+				<div class="button">...</div>
+			</a>
+		</div>
+		<div class="line">
+			<a target="_blank" rel="noopener noreferrer" href="https://fourier.hvt.bme.hu/">
+				<div class="button">Rendszerelmélet</div>
+			</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Rendszerelm%C3%A9let">
+				<div class="button">...</div>
+			</a>
+		</div>
+		<div class="line">
+			<a target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/targyak/BMEVIIIAB00?language=hu">
+				<div class="button">A programozás alapjai 3</div>
+			</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/A_programoz%C3%A1s_alapjai_3">
+				<div class="button">...</div>
+			</a>
+		</div>
+		<div class="line">
+			<a target="_blank" rel="noopener noreferrer" href="http://www.cs.bme.hu/~cscsgy/vsz/">
+				<div class="button">Valószínűségszámítás</div>
+			</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Val%C3%B3sz%C3%ADn%C5%B1s%C3%A9gsz%C3%A1m%C3%ADt%C3%A1s">
+				<div class="button">...</div>
+			</a>
+		</div>
+		<div class="line">
+			<a target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=221">
+				<div class="button">Kommunikációs hálózatok 1</div>
+			</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Kommunik%C3%A1ci%C3%B3s_h%C3%A1l%C3%B3zatok_1">
+				<div class="button">...</div>
+			</a>
+		</div>
+		<div class="line">
+			<a target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=226">
+				<div class="button">Kódolástechnika</div>
+			</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/K%C3%B3dol%C3%A1stechnika">
+				<div class="button">...</div>
+			</a>
+		</div>
+		<div class="line">
+			<a target="_blank" rel="noopener noreferrer" href="http://www.google.hu">
+				<div class="button">Szoftvertechnológia</div>
+			</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Szoftvertechnol%C3%B3gia">
+				<div class="button">...</div>
+			</a>
+		</div>
+		<div class="line">
+			<a target="_blank" rel="noopener noreferrer" href="lab2.zip">
+				<div class="button">TNPL2</div>
+			</a>
+		</div>
+	</body>
 </html>
