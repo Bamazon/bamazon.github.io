@@ -3,129 +3,200 @@
 	<head>
 		<meta charset="UTF-8">
 		<link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
-<style>
-	body {
-	font-family: "Maven Pro";
-	background-color: #161d28;
-}
-
-a {
-	text-decoration: none;
-}
-
-.line {
-	display: block;
-	border-left: 2px solid white;
-	border-radius: 4px;
-	padding-left: 8px;
-	margin: 8px;
-}
-
-.button {
-	background-color: none;
-	border: 1px solid white;
-	color: white;
-	padding: 5px;
-	text-align: left;
-	display: inline-block;
-	font-size: 52px;
-	cursor: pointer;
-	border-radius: 4px;
-	-webkit-transition: 0.2s;
-	/* Safari */
-	transition: 0.2s;
-}
-
-.button:hover {
-	background-color: rgba(255, 255, 255, 0.8);
-	border: 1px solid white;
-	color: black;
-	padding: 5px;
-	text-align: left;
-	display: inline-block;
-	font-size: 60px;
-	font-weight: bold;
-	cursor: pointer;
-	border-radius: 4px;
-	-webkit-transition: 0.2s;
-	/* Safari */
-	transition: 0.2s;
-}
-
-.chunk {
-	color: orange;
-	font-weight: bold;
-	font-size: 36px;
-	margin-left: 18px;
-}
-
-</style>
+		<style>
+			body{ 
+			background-color: random_color;
+			}
+			a {
+			text-decoration: none;
+			}
+			.centered {
+			margin:50px auto;
+			text-align:center;
+			}
+			.button::-moz-focus-inner{
+			border: 0;
+			padding: 0;
+			}
+			.button{
+			display: inline-block;
+			*display: inline;
+			zoom: 1;
+			padding: 6px 20px;
+			margin: 0;
+			cursor: pointer;
+			border: 1px solid #bbb;
+			overflow: visible;
+			font: bold 13px arial, helvetica, sans-serif;
+			text-decoration: none;
+			white-space: nowrap;
+			color: #555;
+			background-color: #ddd;
+			background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,1)), to(rgba(255,255,255,0)));
+			background-image: -webkit-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+			background-image: -moz-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+			background-image: -ms-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+			background-image: -o-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+			background-image: linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+			-webkit-transition: background-color .2s ease-out;
+			-moz-transition: background-color .2s ease-out;
+			-ms-transition: background-color .2s ease-out;
+			-o-transition: background-color .2s ease-out;
+			transition: background-color .2s ease-out;
+			background-clip: padding-box; /* Fix bleeding */
+			-moz-border-radius: 3px;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+			-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+			-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+			box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+			text-shadow: 0 1px 0 rgba(255,255,255, .9);
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			}
+			.button:hover{
+			background-color: #eee;
+			color: #555;
+			}
+			.button:active{
+			background: #e9e9e9;
+			position: relative;
+			top: 1px;
+			text-shadow: none;
+			-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
+			-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
+			box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
+			}
+			/* Smaller buttons styles */
+			.button.small{
+			padding: 4px 12px;
+			}
+			/* Larger buttons styles */
+			.button.large{
+			padding: 12px 30px;
+			text-transform: uppercase;
+			}
+			.button.large:active{
+			top: 2px;
+			}
+			/* Colored buttons styles */
+			.button.green, .button.red, .button.blue {
+			color: #fff;
+			text-shadow: 0 1px 0 rgba(0,0,0,.2);
+			background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.3)), to(rgba(255,255,255,0)));
+			background-image: -webkit-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+			background-image: -moz-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+			background-image: -ms-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+			background-image: -o-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+			background-image: linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+			}
+			/* */
+			.button.green{
+			background-color: #57a957;
+			border-color: #57a957;
+			}
+			.button.green:hover{
+			background-color: #62c462;
+			}
+			.button.green:active{
+			background: #57a957;
+			}
+			/* */
+			.button.red{
+			background-color: #ca3535;
+			border-color: #c43c35;
+			}
+			.button.red:hover{
+			background-color: #ee5f5b;
+			}
+			.button.red:active{
+			background: #c43c35;
+			}
+			/* */
+			.button.blue{
+			background-color: #269CE9;
+			border-color: #269CE9;
+			}
+			.button.blue:hover{
+			background-color: #70B9E8;
+			}
+			.button.blue:active{
+			background: #269CE9;
+			}
+			/* */
+			.green[disabled], .green[disabled]:hover, .green[disabled]:active{
+			border-color: #57A957;
+			background: #57A957;
+			color: #D2FFD2;
+			}
+			.red[disabled], .red[disabled]:hover, .red[disabled]:active{
+			border-color: #C43C35;
+			background: #C43C35;
+			color: #FFD3D3;
+			}
+			.blue[disabled], .blue[disabled]:hover, .blue[disabled]:active{
+			border-color: #269CE9;
+			background: #269CE9;
+			color: #93D5FF;
+			}
+		</style>
 	</head>
 	<body>
-		<div class="chunk">
-			Tantárgyak
-		</div>
-		<div class="line">
-			<a target="_blank" rel="noopener noreferrer" href="https://www.db.bme.hu/">
-				<div class="button">Adatbázisok</div>
-			</a>
-			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Adatb%C3%A1zisok">
-				<div class="button">...</div>
-			</a>
-		</div>
-		<div class="line">
-			<a target="_blank" rel="noopener noreferrer" href="https://fourier.hvt.bme.hu/">
-				<div class="button">Rendszerelmélet</div>
-			</a>
-			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Rendszerelm%C3%A9let">
-				<div class="button">...</div>
-			</a>
-		</div>
-		<div class="line">
-			<a target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/oktatas/tanszeki_targyak/BMEVIIIAB00?language=hu">
-				<div class="button">A programozás alapjai 3</div>
+		<div class="centered">
+			<a target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/targyak/BMEVIIIAB00?language=hu">
+				<button class="large green button">A programozás alapjai 3</button>
 			</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/A_programoz%C3%A1s_alapjai_3">
-				<div class="button">...</div>
+				<button class="small button">...</button>
 			</a>
-		</div>
-		<div class="line">
-			<a target="_blank" rel="noopener noreferrer" href="http://www.cs.bme.hu/~cscsgy/vsz/">
-				<div class="button">Valószínűségszámítás</div>
+			<br><br>
+			<a target="_blank" rel="noopener noreferrer" href="https://www.db.bme.hu/adatbazisok/">
+				<button class="large blue button">Adatbázisok</button>
 			</a>
-			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Val%C3%B3sz%C3%ADn%C5%B1s%C3%A9gsz%C3%A1m%C3%ADt%C3%A1s">
-				<div class="button">...</div>
+			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Adatb%C3%A1zisok">
+				<button class="small button">...</button>
 			</a>
-		</div>
-		<div class="line">
-			<a target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=221">
-				<div class="button">Kommunikációs hálózatok 1</div>
-			</a>
-			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Kommunik%C3%A1ci%C3%B3s_h%C3%A1l%C3%B3zatok_1">
-				<div class="button">...</div>
-			</a>
-		</div>
-		<div class="line">
+			<br><br>
 			<a target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=226">
-				<div class="button">Kódolástechnika</div>
+				<button class="large green button">Kódolástechnika</button>
 			</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/K%C3%B3dol%C3%A1stechnika">
-				<div class="button">...</div>
+				<button class="small button">...</button>
 			</a>
-		</div>
-		<div class="line">
+			<br><br>
+			<a target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=221">
+				<button class="large blue button">Kommunikációs hálózatok 1</button>
+			</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Kommunik%C3%A1ci%C3%B3s_h%C3%A1l%C3%B3zatok_1">
+				<button class="small button">...</button>
+			</a>
+			<br><br>
+			<a target="_blank" rel="noopener noreferrer" href="https://fourier.hvt.bme.hu/course/view.php?id=3">
+				<button class="large green button">Rendszerelmélet</button>
+			</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Rendszerelm%C3%A9let">
+				<button class="small button">...</button>
+			</a>
+			<br><br>
 			<a target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/oktatas/tanszeki_targyak/BMEVIIIAB01?lang=hu">
-				<div class="button">Szoftvertechnológia</div>
+				<button class="large blue button">Szoftvertechnológia</button>
 			</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Szoftvertechnol%C3%B3gia">
-				<div class="button">...</div>
+				<button class="small button">...</button>
 			</a>
-		</div>
-		<div class="line">
-			<a target="_blank" rel="noopener noreferrer" href="lab2.zip">
-				<div class="button">TNPL2</div>
+			<br><br>
+			<a target="_blank" rel="noopener noreferrer" href="http://www.cs.bme.hu/~cscsgy/vsz/">
+				<button class="large green button">Valószínűségszámítás</button>
 			</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Val%C3%B3sz%C3%ADn%C5%B1s%C3%A9gsz%C3%A1m%C3%ADt%C3%A1s">
+				<button class="small button">...</button>
+			</a>
+			<br><br>
+			<button class="small red button">Nem nyomnám meg</button>
 		</div>
 	</body>
-	
 </html>
