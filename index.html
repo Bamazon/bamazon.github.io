@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>BME</title>	
+		<title>BME</title>
 		<link rel="SHORTCUT ICON" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Twemoji2_1f602.svg/100px-Twemoji2_1f602.svg.png">
 		<link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
 		<script type="text/javascript">
@@ -177,207 +177,161 @@
 			// ]]>
 		</script>
 		<style>
-			body{ 
-			overflow:hidden;
-			background-color: #1f2328;
-			cursor: url('http://pics.wurzelimperium.de/pics/bonsai/cursor_schere2.gif');
+			html,
+			body {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			background: #2c3e50;
+			font-family: "Montserrat", sans-serif;
+			font-size: 16px;
+			}
+			body {
+			align-items: center;
+			align-content: center;
+			overflow: hidden;
+			}
+			@media screen and (max-width: 600px) {
+			h1 {
+			font-size: 3rem;
+			}
+			}
+			p {
+			color: #f1c40f;
+			font-size: 1.2rem;
+			width: 100%;
+			text-align: center;
+			}
+			.btn {
+			box-sizing: border-box;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			background-color: transparent;
+			border: 2px solid #e74c3c;
+			border-radius: 0.6em;
+			color: #e74c3c;
+			cursor: pointer;
+			align-self: center;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1;
+			padding: 1.2em 2.8em;
+			text-decoration: none;
+			text-align: center;
+			text-transform: uppercase;
+			font-family: "Montserrat", sans-serif;
+			font-weight: 700;
+			}
+			.btn:hover, .btn:focus {
+			color: #fff;
+			outline: 0;
+			}
+			.first {
+			transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+			}
+			.first:hover {
+			box-shadow: 0 0 40px 40px #e74c3c inset;
+			}
+			.second {
+			border-radius: 3em;
+			border-color: #1abc9c;
+			color: #fff;
+			background-image: linear-gradient(to right, rgba(26, 188, 156, 0.6), rgba(26, 188, 156, 0.6) 5%, #1abc9c 5%, #1abc9c 10%, rgba(26, 188, 156, 0.6) 10%, rgba(26, 188, 156, 0.6) 15%, #1abc9c 15%, #1abc9c 20%, rgba(26, 188, 156, 0.6) 20%, rgba(26, 188, 156, 0.6) 25%, #1abc9c 25%, #1abc9c 30%, rgba(26, 188, 156, 0.6) 30%, rgba(26, 188, 156, 0.6) 35%, #1abc9c 35%, #1abc9c 40%, rgba(26, 188, 156, 0.6) 40%, rgba(26, 188, 156, 0.6) 45%, #1abc9c 45%, #1abc9c 50%, rgba(26, 188, 156, 0.6) 50%, rgba(26, 188, 156, 0.6) 55%, #1abc9c 55%, #1abc9c 60%, rgba(26, 188, 156, 0.6) 60%, rgba(26, 188, 156, 0.6) 65%, #1abc9c 65%, #1abc9c 70%, rgba(26, 188, 156, 0.6) 70%, rgba(26, 188, 156, 0.6) 75%, #1abc9c 75%, #1abc9c 80%, rgba(26, 188, 156, 0.6) 80%, rgba(26, 188, 156, 0.6) 85%, #1abc9c 85%, #1abc9c 90%, rgba(26, 188, 156, 0.6) 90%, rgba(26, 188, 156, 0.6) 95%, #1abc9c 95%, #1abc9c 100%);
+			background-position: 0 0;
+			background-size: 100%;
+			transition: background 300ms ease-in-out;
+			}
+			.second:hover {
+			background-position: 100px;
+			}
+			.fourth {
+			border-color: #f1c40f;
+			color: #fff;
+			background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+			background-position: 100%;
+			background-size: 400%;
+			transition: background 300ms ease-in-out;
+			}
+			.fourth:hover {
+			background-position: 0;
 			}
 			a {
 			text-decoration: none;
 			}
-			.centered {
-			margin: auto;
-			text-align:left;
-			}
-			.button::-moz-focus-inner{
-			border: 0;
-			padding: 0;
-			}
-			.button{
-			display: inline-block;
-			*display: inline;
-			zoom: 1;
-			padding: 6px 20px;
-			margin: 0;
-			cursor: pointer;
-			border: 1px solid #bbb;
-			overflow: visible;
-			font: bold 4vh arial, helvetica, sans-serif;
-			text-decoration: none;
-			white-space: nowrap;
-			color: #555;
-			background-color: #ddd;
-			background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,1)), to(rgba(255,255,255,0)));
-			background-image: -webkit-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
-			background-image: -moz-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
-			background-image: -ms-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
-			background-image: -o-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
-			background-image: linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
-			-webkit-transition: background-color .2s ease-out;
-			-moz-transition: background-color .2s ease-out;
-			-ms-transition: background-color .2s ease-out;
-			-o-transition: background-color .2s ease-out;
-			transition: background-color .2s ease-out;
-			background-clip: padding-box; /* Fix bleeding */
-			-moz-border-radius: 3px;
-			-webkit-border-radius: 3px;
-			border-radius: 3px;
-			-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
-			-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
-			box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
-			text-shadow: 0 1px 0 rgba(255,255,255, .9);
-			-webkit-touch-callout: none;
-			-webkit-user-select: none;
-			-khtml-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-			}
-			.button:hover{
-			background-color: #eee;
-			color: #555;
-			}
-			.button:active{
-			background: #e9e9e9;
-			position: relative;
-			top: 1px;
-			text-shadow: none;
-			-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
-			-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
-			box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
-			}
-			/* Smaller buttons styles */
-			.button.small{
-			padding: 4px 12px;
-			}
-			/* Larger buttons styles */
-			.button.large{
-			padding: 12px 30px;
-			text-transform: uppercase;
-			}
-			.button.large:active{
-			top: 2px;
-			}
-			/* Colored buttons styles */
-			.button.green, .button.red, .button.blue {
-			color: #fff;
-			text-shadow: 0 1px 0 rgba(0,0,0,.2);
-			background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.3)), to(rgba(255,255,255,0)));
-			background-image: -webkit-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
-			background-image: -moz-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
-			background-image: -ms-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
-			background-image: -o-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
-			background-image: linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
-			}
-			/* */
-			.button.green{
-			background-color: #57a957;
-			border-color: #57a957;
-			}
-			.button.green:hover{
-			background-color: #62c462;
-			}
-			.button.green:active{
-			background: #57a957;
-			}
-			/* */
-			.button.red{
-			background-color: #ca3535;
-			border-color: #c43c35;
-			}
-			.button.red:hover{
-			background-color: #ee5f5b;
-			}
-			.button.red:active{
-			background: #c43c35;
-			}
-			/* */
-			.button.blue{
-			background-color: #269CE9;
-			border-color: #269CE9;
-			}
-			.button.blue:hover{
-			background-color: #70B9E8;
-			}
-			.button.blue:active{
-			background: #269CE9;
-			}
-			/* */
-			.green[disabled], .green[disabled]:hover, .green[disabled]:active{
-			border-color: #57A957;
-			background: #57A957;
-			color: #D2FFD2;
-			}
-			.red[disabled], .red[disabled]:hover, .red[disabled]:active{
-			border-color: #C43C35;
-			background: #C43C35;
-			color: #FFD3D3;
-			}
-			.blue[disabled], .blue[disabled]:hover, .blue[disabled]:active{
-			border-color: #269CE9;
-			background: #269CE9;
-			color: #93D5FF;
+			h1 {
+			font-size: 2rem;
+			text-align: center;
+			color: white;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="centered">
+		<h1>Tárgyak</h1>
+		<p>
 			<a target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/targyak/BMEVIIIAB00?language=hu">
-			<button class="large button">A programozás alapjai 3</button>
+			<button class="btn fourth">A programozás alapjai 3</button>
 			</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/A_programoz%C3%A1s_alapjai_3">
-			<button class="small button">...</button>
+			<button class="btn first">...</button>
 			</a>
-			<br><br>
+		</p>
+		<p>
 			<a target="_blank" rel="noopener noreferrer" href="https://www.db.bme.hu/adatbazisok/">
-			<button class="large button">Adatbázisok</button>
+			<button class="btn fourth">Adatbázisok</button>
 			</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Adatb%C3%A1zisok">
-			<button class="small button">...</button>
+			<button class="btn first">...</button>
 			</a>
-			<br><br>
+		</p>
+		<p>
 			<a target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=226">
-			<button class="large button">Kódolástechnika</button>
+			<button class="btn fourth">Kódolástechnika</button>
 			</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/K%C3%B3dol%C3%A1stechnika">
-			<button class="small button">...</button>
+			<button class="btn first">...</button>
 			</a>
-			<br><br>
+		</p>
+		<p>
 			<a target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=221">
-			<button class="large button">Kommunikációs hálózatok 1</button>
+			<button class="btn fourth">Kommunikációs hálózatok 1</button>
 			</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Kommunik%C3%A1ci%C3%B3s_h%C3%A1l%C3%B3zatok_1">
-			<button class="small button">...</button>
+			<button class="btn first">...</button>
 			</a>
-			<br><br>
+		</p>
+		<p>
 			<a target="_blank" rel="noopener noreferrer" href="https://fourier.hvt.bme.hu/course/view.php?id=3">
-			<button class="large button">Rendszerelmélet</button>
+			<button class="btn fourth">Rendszerelmélet</button>
 			</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Rendszerelm%C3%A9let">
-			<button class="small button">...</button>
+			<button class="btn first">...</button>
 			</a>
-			<br><br>
+		</p>
+		<p>
 			<a target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/oktatas/tanszeki_targyak/BMEVIIIAB01?lang=hu">
-			<button class="large button">Szoftvertechnológia</button>
+			<button class="btn fourth">Szoftvertechnológia</button>
 			</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Szoftvertechnol%C3%B3gia">
-			<button class="small button">...</button>
+			<button class="btn first">...</button>
 			</a>
-			<br><br>
+		</p>
+		<p>
 			<a target="_blank" rel="noopener noreferrer" href="http://www.cs.bme.hu/~cscsgy/vsz/">
-			<button class="large button">Valószínűségszámítás</button>
+			<button class="btn fourth">Valószínűségszámítás</button>
 			</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Val%C3%B3sz%C3%ADn%C5%B1s%C3%A9gsz%C3%A1m%C3%ADt%C3%A1s">
-			<button class="small button">...</button>
+			<button class="btn first">...</button>
 			</a>
-			<br><br>
+		</p>
+		<p>
 			<a target="_blank" rel="noopener noreferrer" href="https://youtu.be/_F-HhJ2uTFE?t=44">
-			<button class="small red button">Nem nyomnám meg</button>
+			<button class="btn second">Nem nyomnám meg</button>
 			</a>
-			<br><br>
 			<a target="_blank" rel="noopener noreferrer" href="https://frame.neptun.bme.hu/hallgatoi/Login.aspx">
-			<button class="small blue button">Neptun</button>
+			<button class="btn second">Neptun</button>
 			</a>
-		</div>
+		</p>
 	</body>
 </html>
