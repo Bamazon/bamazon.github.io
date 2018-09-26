@@ -1,0 +1,352 @@
+package sample;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.channels.FileChannel;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+
+		File f = new File(System.getProperty("user.dir"));
+
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+		while (true) {
+			String line = br.readLine();
+
+			if (line == null)
+				break;
+
+			String[] cmd = line.split(" ");
+
+			if (cmd[0].equals("exit")) {
+				break;
+
+			} else if (cmd[0].equals("reclist")) {
+				reclist(f, "");
+
+			} else if (cmd[0].equals("cd")) {
+				f = cd(f, cmd);
+
+			} else if (cmd[0].equals("pwd")) {
+				pwd(f);
+
+			} else if (cmd[0].equals("ls")) {
+				ls(f, cmd);
+
+			} else if (cmd[0].equals("rm")) {
+				rm(f, cmd);
+
+			} else if (cmd[0].equals("mkdir")) {
+				mkdir(f, cmd);
+
+			} else if (cmd[0].equals("cp")) {
+				cp(f, cmd);
+
+			} else if (cmd[0].equals("head")) {
+				head(f, cmd);
+
+			} else if (cmd[0].equals("mv")) {
+				mv(f, cmd);
+
+			} else if (cmd[0].equals("cat")) {
+				cat(f, cmd);
+
+			} else if (cmd[0].equals("wc")) {
+				wc(f, cmd);
+
+			} else if (cmd[0].equals("lenght")) {
+				lenght(f, cmd);
+
+			} else if (cmd[0].equals("tail")) {
+				tail(f, cmd);
+
+			} else if (cmd[0].equals("grep")) {
+				grep(f, cmd);
+
+			}
+
+		}
+		br.close();
+		System.out.println("Kilépés...");
+	}
+
+	/* //////////////////////FÜGGVÉNYEK///////////////////////////// */
+
+	protected static void reclist(File f, String tab) {
+		String tab2 = "   ";
+		File[] list = f.listFiles();
+		for (int i = 0; i < list.length; i++) {
+			System.out.println(tab + list[i].getName());
+			if (list[i].isDirectory()) {
+				reclist(list[i], tab + tab2);
+			}
+		}
+	}
+
+	protected static void pwd(File f) throws IOException {
+		System.out.println(f.getCanonicalPath());
+	}
+
+	protected static File cd(File f, String[] cmd) {
+		if (cmd.length == 2) {
+			File f2 = null;
+			if (cmd[1].equals("...")) {
+				f2 = f.getParentFile();
+			} else {
+				f2 = new File(cmd[1]);
+			}
+			if (!(f2.exists())) {
+				System.out.println("Nem létezõ ûtvonal");
+				File f_ment = new File(System.getProperty("user.dir"));
+				return f_ment;
+			}
+			return f2;
+		} else {
+			System.out.println("Hiányzó paraméterek!");
+			File f_ment = new File(System.getProperty("user.dir"));
+			return f_ment;
+		}
+	}
+
+	protected static void ls(File f, String[] cmd) {
+		if (cmd.length == 2) {
+			if (cmd[1].equals("-l")) {
+				String tab = "   ";
+				File[] list = f.listFiles();
+				for (int i = 0; i < list.length; i++) {
+					if (list[i].isDirectory()) {
+						System.out.println(tab + "d - " + list[i].getName() + " - " + list[i].length());
+					} else {
+						System.out.println(tab + "f - " + list[i].getName() + " - " + list[i].length());
+					}
+				}
+			}
+		} else {
+			String tab = "   ";
+			File[] list = f.listFiles();
+			for (int i = 0; i < list.length; i++) {
+				if (list[i].isDirectory()) {
+					System.out.println(tab + list[i].getName());
+				} else {
+					System.out.println(tab + list[i].getName());
+				}
+			}
+		}
+	}
+
+	protected static void rm(File f, String[] cmd) {
+		File file = null;
+		if (cmd.length == 2) {
+			file = new File(f, cmd[1]);
+			if (file.delete()) {
+				System.out.println("File törlése sikeres!");
+			} else {
+				System.out.println("Sikertelen file törlés!");
+			}
+		} else {
+			System.out.println("Hiányzó paraméterek!");
+		}
+	}
+
+	protected static void mkdir(File f, String[] cmd) {
+		if (cmd.length == 2) {
+			File theDir = new File(f, cmd[1]);
+
+			if (!theDir.exists()) {
+				theDir.mkdir();
+			} else {
+				System.out.println("Már van ilyen nevû mappa!");
+			}
+		}
+	}
+
+	protected static void cp(File f, String[] cmd) throws IOException {
+		if (cmd.length == 3) {
+
+			File file1 = new File(f, cmd[1]);
+			File file2 = new File(f, cmd[2]);
+
+			if (!file1.exists()) {
+				System.out.println("A másolandó file nem létezik!");
+			} else {
+				if (!file2.exists())
+					System.out.println("A cél file nem létezik, most létrehozzuk!");
+				FileChannel src = new FileInputStream(file1).getChannel();
+				FileChannel dest = new FileOutputStream(file2).getChannel();
+				dest.transferFrom(src, 0, src.size());
+				dest.transferFrom(src, 0, src.size());
+				System.out.println("A file sikeresen átmásolva!");
+			}
+		}
+	}
+
+	protected static void head(File f, String[] cmd) throws FileNotFoundException, IOException {
+		if (cmd.length > 1) {
+			int n;
+			File file = null;
+			if (cmd[1].equals("-n")) {
+				n = Integer.parseInt(cmd[2]);
+				file = new File(f, cmd[3]);
+			} else {
+				n = 10;
+				file = new File(f, cmd[1]);
+			}
+			if (file.exists()) {
+				BufferedReader br = new BufferedReader(new FileReader(file));
+				String line;
+				int locN = 0;
+				while (((line = br.readLine()) != null) && (locN < n)) {
+					System.out.println(line);
+					locN++;
+				}
+			} else {
+				System.out.println("A file nem létezik!");
+			}
+
+		} else {
+			System.out.println("Hiányzó paraméterek!");
+		}
+	}
+
+	protected static void mv(File f, String[] cmd) {
+
+		if (cmd.length == 3) {
+			File file = new File(f, cmd[1]);
+
+			File file2 = new File(f, cmd[2]);
+
+			if (file2.exists()) {
+				System.out.println("Ilyen nevû file már létezik!");
+			} else {
+				boolean success = file.renameTo(file2);
+
+				if (!success) {
+					System.out.println("File átnevezése sikertelen!");
+				} else {
+					System.out.println("File sikeresen átnevezve!");
+				}
+			}
+		} else {
+			System.out.println("Hiányzó paraméterek!");
+		}
+	}
+
+	protected static void cat(File f, String[] cmd) throws IOException {
+		if (cmd.length == 2) {
+			File file = new File(f, cmd[1]);
+			if (file.exists()) {
+				BufferedReader br = new BufferedReader(new FileReader(file));
+				String line;
+				while ((line = br.readLine()) != null) {
+					System.out.println(line);
+				}
+			} else {
+				System.out.println("A file nem létezik!");
+			}
+		} else {
+			System.out.println("Hiányzó paraméterek!");
+		}
+	}
+
+	protected static void wc(File f, String[] cmd) throws IOException {
+		if (cmd.length == 2) {
+			File file = new File(f, cmd[1]);
+			if (file.exists()) {
+				BufferedReader br = new BufferedReader(new FileReader(file));
+				String line;
+				int sorokszama = 0;
+				int szavakszama = 0;
+				int betukszama = 0;
+				while ((line = br.readLine()) != null) {
+					sorokszama++;
+					StringTokenizer st = new StringTokenizer(line);
+					while (st.hasMoreTokens()) {
+						szavakszama++;
+						st.nextElement();
+					}
+					betukszama += line.length();
+				}
+				System.out.println(cmd[1] + " - " + sorokszama + " sorból, " + szavakszama + " szóból, " + betukszama
+						+ " betûbõl áll!");
+			} else {
+				System.out.println("A file nem létezik!");
+			}
+		} else {
+			System.out.println("Hiányzó paraméterek!");
+		}
+
+	}
+
+	protected static void lenght(File f, String[] cmd) {
+		if (cmd.length == 2) {
+			File file = new File(f, cmd[1]);
+			if (file.exists()) {
+				System.out.println(file.length());
+			} else {
+				System.out.println("A file nem létezik!");
+			}
+		}
+	}
+
+	protected static void tail(File f, String[] cmd) throws IOException {
+		if (cmd.length > 1) {
+			int n;
+			File file = null;
+			if (cmd[1].equals("-n")) {
+				n = Integer.parseInt(cmd[2]);
+				file = new File(f, cmd[3]);
+			} else {
+				n = 10;
+				file = new File(f, cmd[1]);
+			}
+			if (file.exists()) {
+				BufferedReader br = new BufferedReader(new FileReader(file));
+				String line;
+				LinkedList<String> lista = new LinkedList<>();
+				while ((line = br.readLine()) != null) {
+					lista.add(line);
+				}
+				int localn = 0;
+				for (int i = lista.size() - 1; i >= 0 && localn < n; i--) {
+					System.out.println(lista.get(i));
+					localn++;
+				}
+			} else {
+				System.out.println("Nem létezik ilyen file!");
+			}
+		} else {
+			System.out.println("Hiányzó paraméterek!");
+		}
+	}
+
+	protected static void grep(File f, String[] cmd) throws IOException {
+		if (cmd.length == 3) {
+			File file = new File(f, cmd[2]);
+			if (file.exists()) {
+				String pattern = cmd[1];
+				BufferedReader br = new BufferedReader(new FileReader(file));
+				String line;
+				while ((line = br.readLine()) != null) {
+					if (line.contains(pattern)) {
+						System.out.println(line);
+					}
+				}
+			} else {
+				System.out.println("Nem létezik ilyen file!");
+			}
+		}
+	}
+
+}
