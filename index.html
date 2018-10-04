@@ -186,12 +186,11 @@
 					$('body').css('backgroundImage', 'url(https://i.pinimg.com/originals/40/d8/b9/40d8b91c48a86543c0ddd2b17aa48e37.jpg)');
 					$('body').css('backgroundSize', 'cover');
 					$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994)');
-					}, () => {
+					$('#nem_nyomnam_meg').remove();
+					airHorn.play();
 					$('body').click( () => {
 						gunSound.play();
 					});
-					$('#nem_nyomnam_meg').remove();
-					airHorn.play();
 				});
 			});
 		</script>
