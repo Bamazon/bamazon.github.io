@@ -178,21 +178,31 @@
 		</script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type = "text/javascript">
-			var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
-			var gunSound = new Audio('http://soundbible.com/grab.php?id=2095&type=mp3');
-			$( () => {
-				$('#blue_buttons').append('<button id ="nem_nyomnam_meg" class="btn second">NEM NYOMNÁM MEG <img src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/2000px-Speaker_Icon.svg.png" width="13 rem" height="13 rem" /></button>');
-				$('#nem_nyomnam_meg').click( () => {
+			function AirHorn() {
+				return new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3').load();
+			}
+			
+			function GunSound() {
+				return new Audio('http://soundbible.com/grab.php?id=2095&type=mp3').load();
+			}
+			
+			async function LoadMLG() {
+					$('#blue_buttons').append('<button id ="nem_nyomnam_meg" class="btn second">NEM NYOMNÁM MEG <img src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/2000px-Speaker_Icon.svg.png" width="13 rem" height="13 rem" /></button>');
+					$('#nem_nyomnam_meg').click( () => {
 					$('body').css('backgroundImage', 'url(https://i.pinimg.com/originals/40/d8/b9/40d8b91c48a86543c0ddd2b17aa48e37.jpg)');
 					$('body').css('backgroundSize', 'cover');
 					$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
 					$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
 					$('#nem_nyomnam_meg').remove();
-					airHorn.play();
+					await AirHorn().play();
 					$('body').click( () => {
-						gunSound.play();
+						await GunSound().play();
 					});
 				});
+			}
+			
+			$( () => {
+				LoadMLG();
 			});
 		</script>
 <style>
