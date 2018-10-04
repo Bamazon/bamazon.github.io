@@ -178,11 +178,13 @@
 		</script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type = "text/javascript">
-			$('#nem_nyomnam_meg').click( () => {
-				$('body').css('background-color', 'https://i.giphy.com/media/pknOsRld7c5fq/giphy.webp');
-				$('#nem_nyomnam_meg').remove();
-				var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
-				airHorn.play();
+			$document.ready( () => {
+				$('#nem_nyomnam_meg').click( () => {
+					$('body').css('backgroundImage', 'url(https://i.giphy.com/media/pknOsRld7c5fq/giphy.webp)');
+					$('#nem_nyomnam_meg').remove();
+					var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
+					airHorn.play();
+				});
 			});
 		</script>
 <style>
