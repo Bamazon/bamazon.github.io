@@ -176,11 +176,13 @@
 			}
 			// ]]>
 		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type = "text/javascript">
-			function ChangePumpkin() {
-				document.getElementById("body").style.background = "url('https://i.giphy.com/media/pknOsRld7c5fq/giphy.webp')";
-				var audio = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
-				audio.play();
+			$('#nem_nyomnam_meg').click( () => {
+				$('body').css('background-color', 'https://i.giphy.com/media/pknOsRld7c5fq/giphy.webp');
+				$('#nem_nyomnam_meg').remove();
+				var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
+				airHorn.play();
 			}
 		</script>
 <style>
@@ -193,7 +195,7 @@ html, body {
      font-family: "Montserrat", sans-serif;
      font-size: 16px;
 }
- #body {
+ body {
      align-items: center;
      align-content: center;
      overflow: hidden;
@@ -378,7 +380,7 @@ html, body {
 			<a target="_blank" rel="noopener noreferrer" href="https://www.vik.bme.hu/document/2311/original/ZHutem_osz_2018_09_13_info.pdf">
 			<button class="btn second">Ütemterv</button>
 			</a>
-			<button onclick = "ChangePumpkin()" class="btn second">NEM NYOMNÁM MEG</button>
+			<button id ="nem_nyomnam_meg" onclick = "ChangePumpkin()" class="btn second">NEM NYOMNÁM MEG</button>
 		</p>
 	</body>
 </html>
