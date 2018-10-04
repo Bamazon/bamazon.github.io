@@ -181,6 +181,7 @@
 			$('document').ready( () => {
 				var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
 				var gunSound = new Audio('http://soundbible.com/grab.php?id=2095&type=mp3');
+				$('#blue_buttons').append('<button id ="nem_nyomnam_meg" class="btn second">NEM NYOMNÁM MEG</button>');
 				$('#nem_nyomnam_meg').click( () => {
 					$('body').css('backgroundImage', 'url(https://i.pinimg.com/originals/40/d8/b9/40d8b91c48a86543c0ddd2b17aa48e37.jpg)');
 					$('body').css('backgroundSize', 'cover');
@@ -382,14 +383,13 @@ html, body {
 			<button class="btn first">WIKI</button>
 			</a>
 		</p>
-		<p>
+		<p id = "blue_buttons">
 			<a target="_blank" rel="noopener noreferrer" href="https://frame.neptun.bme.hu/hallgatoi/Login.aspx">
 			<button class="btn second">Neptun</button>
 			</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://www.vik.bme.hu/document/2311/original/ZHutem_osz_2018_09_13_info.pdf">
 			<button class="btn second">Ütemterv</button>
 			</a>
-			<button id ="nem_nyomnam_meg" class="btn second">NEM NYOMNÁM MEG</button>
 		</p>
 	</body>
 </html>
