@@ -194,7 +194,7 @@
 				$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
 				$('#nem_nyomnam_meg').remove();
 				await AirHorn().play();
-				$('body').click( () => {
+				$('body').click( async () => {
 					await GunSound().play();
 				});
 			}
