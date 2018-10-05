@@ -178,9 +178,11 @@
 		</script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type = "text/javascript">
-			var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3').load();
-			var gunSound = new Audio('http://soundbible.com/grab.php?id=2095&type=mp3').load();
+			var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
+			var gunSound = new Audio('http://soundbible.com/grab.php?id=2095&type=mp3');
 			$( () => {
+				airHorn.load();
+				gunSound.load();
 				$('#nem_nyomnam_meg').click( () => {
 					$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
 					$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
