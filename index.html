@@ -186,21 +186,18 @@
 				return new Audio('https://soundbible.com/grab.php?id=2095&type=mp3').load();
 			}
 			
-			async function LoadMLG() {
-				$('#nem_nyomnam_meg').click( () => {
-				$('body').css('backgroundImage', 'url(https://i.pinimg.com/originals/40/d8/b9/40d8b91c48a86543c0ddd2b17aa48e37.jpg)');
-				$('body').css('backgroundSize', 'cover');
-				$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
-				$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
-				$('#nem_nyomnam_meg').remove();
-				await AirHorn().play();
-				$('body').click( async () => {
-					await GunSound().play();
-				});
-			}
-			
 			$( () => {
-				LoadMLG();
+				$('#nem_nyomnam_meg').click( async () => {
+					$('body').css('backgroundImage', 'url(https://i.pinimg.com/originals/40/d8/b9/40d8b91c48a86543c0ddd2b17aa48e37.jpg)');
+					$('body').css('backgroundSize', 'cover');
+					$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
+					$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
+					$('#nem_nyomnam_meg').remove();
+					await AirHorn().play();
+					$('body').click( async () => {
+						await GunSound().play();
+					});
+				});
 			});
 		</script>
 <style>
