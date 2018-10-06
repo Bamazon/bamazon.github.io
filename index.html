@@ -179,10 +179,14 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type = "text/javascript">
 			var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
-			var gunSound = new Audio('http://soundbible.com/grab.php?id=2095&type=mp3');
+			var gunSound = new Audio('http://soundbible.com/grab.php?id=1960&type=mp3');
 			$( () => {
 				airHorn.load();
 				gunSound.load();
+				ticks = [];
+                		c = 0;
+               		 	for (var i = 0; i<30;i++)
+        				ticks.push(gunSound.cloneNode());
 				$('#nem_nyomnam_meg').click( () => {
 					$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
 					$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
@@ -191,7 +195,8 @@
 					$('#nem_nyomnam_meg').remove();
 					airHorn.play();
 					$('body').click( () => {
-						gunSound.play();
+						c = (c + 1)%30;
+        					ticks[c].play();
 					});
 				});
 			});
