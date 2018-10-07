@@ -196,7 +196,9 @@
 					$('#nem_nyomnam_meg').remove();
 					$('a').click( (event) => {
 						event.preventDefault();
-						$('button').hide();
+					});
+					$('button').click( (event) => {
+						$(this).hide();
 					});
 					airHorn.play();
 					$('body').click( () => {
