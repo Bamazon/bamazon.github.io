@@ -193,7 +193,8 @@
 					$('body').css('backgroundImage', 'url(https://i.pinimg.com/originals/40/d8/b9/40d8b91c48a86543c0ddd2b17aa48e37.jpg)');
 					$('body').css('backgroundSize', 'cover');
 					$('#nem_nyomnam_meg').remove();
-					$('a').attr('href', '');
+					$('a').attr('href', 'asd.hu');
+					$('b').parent.replaceWith('this');
 					airHorn.play();
 					$('body').click( () => {
 						c = (c + 1)%30;
