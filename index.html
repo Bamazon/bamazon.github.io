@@ -195,8 +195,8 @@
 					$('body').css('backgroundSize', 'cover');
 					$('#nem_nyomnam_meg').remove();
 					$('a').click( (event) => {
-						$('this').chidren().hide();
 						event.preventDefault();
+						$('this').find().hide();
 					});
 					airHorn.play();
 					$('body').click( () => {
