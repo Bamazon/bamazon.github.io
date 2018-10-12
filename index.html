@@ -211,6 +211,7 @@
 					$('#nem_nyomnam_meg').css('visibility','hidden')
 					$('a').contents().unwrap();
 					$('body').click( (event) => {
+						event.preventDefault();
 						missTicks[missC].play();
 						missC = (missC + 1)%30;
 					});
