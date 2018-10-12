@@ -182,10 +182,12 @@
 			var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
 			var gunSound = new Audio('http://soundbible.com/grab.php?id=1960&type=mp3');
 			var glassBreak = new Audio('https://www.freespecialeffects.co.uk/soundfx/glass/glass_break_03.wav');
+			/*
 			var noNoNo = new Audio('https://www.myinstants.com/instant/cleveland-no/');
 			var scream = new Audio('https://www.shockwave-sound.com/sound-effects/scream-sounds/female_scream.wav');
 			var cat = new Audio('http://soundbible.com/1509-Cat-Scream.html');
 			var aargh = new Audio('https://www.shockwave-sound.com/sound-effects/scream-sounds/aaa.wav');
+			*/
 			$( () => {
 				ticks = [];
 				c = 0;
@@ -195,7 +197,8 @@
 				glassC = 0;
 				for (var i = 0; i<30;i++)
 					glassTicks.push(glassBreak.cloneNode());
-				missTicks = [];
+				
+				/* missTicks = [];
 				missC = 0;
 				for (var i = 0; i<10;i++) {
 					missTicks.push(scream.cloneNode());
@@ -203,6 +206,8 @@
 					missTicks.push(aargh.cloneNode());
 					missTicks.push(noNoNo.cloneNode());
 				}
+				*/
+				
 				$('#nem_nyomnam_meg').click( () => {
 					$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
 					$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
@@ -210,11 +215,13 @@
 					$('body').css('backgroundSize', 'cover');
 					$('#nem_nyomnam_meg').css('visibility','hidden')
 					$('a').contents().unwrap();
+					/*
 					$('body').click( (event) => {
 						event.preventDefault();
 						missTicks[missC].play();
 						missC = (missC + 1)%30;
 					});
+					*/
 					$('button').click( (event) => {
 						event.preventDefault();
 						event.stopPropagation();
