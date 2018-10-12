@@ -180,13 +180,18 @@
 		<script type = "text/javascript">
 			var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
 			var gunSound = new Audio('http://soundbible.com/grab.php?id=1960&type=mp3');
+			var glassBreak = new Audio('https://www.freespecialeffects.co.uk/soundfx/glass/glass_break_03.wav');
 			$( () => {
 				airHorn.load();
 				gunSound.load();
+				glassBreak.load();
 				ticks = [];
                 		c = 0;
                		 	for (var i = 0; i<30;i++)
         				ticks.push(gunSound.cloneNode());
+				glassC = 0;
+				for (var i = 0; i<30;i++)
+        				glasTicks.push(glassBreak.cloneNode());
 				$('#nem_nyomnam_meg').click( () => {
 					$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
 					$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
@@ -196,7 +201,9 @@
 					$('a').contents().unwrap();
 					$('button').click( (event) => {
 						event.preventDefault();
-						$(event.target).css('visibility','hidden')
+						$(event.target).css('visibility','hidden');
+						glassC = (glassC + 1)%30;
+        					glassticks[glassC].play();
 					});
 					airHorn.play();
 					$('body').click( () => {
