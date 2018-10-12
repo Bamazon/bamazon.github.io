@@ -181,17 +181,30 @@
 			var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
 			var gunSound = new Audio('http://soundbible.com/grab.php?id=1960&type=mp3');
 			var glassBreak = new Audio('https://www.freespecialeffects.co.uk/soundfx/glass/glass_break_03.wav');
+			var noNoNo = new Audio('https://www.myinstants.com/instant/cleveland-no/');
+			var scream = new Audio('https://www.freesoundeffects.com/music_1212344070466429_file7d0665438e81d8eceb98c1e31fca80c1.wav');
+			var cat = new Audio('http://soundbible.com/1509-Cat-Scream.html');
+			var ugh = new Audio('https://www.freesoundeffects.com/music_7451511603466426_file7d0665438e81d8eceb98c1e31fca80c1.wav');
 			$( () => {
 				airHorn.load();
 				gunSound.load();
 				glassBreak.load();
 				ticks = [];
-                		c = 0;
-               		 	for (var i = 0; i<30;i++)
-        				ticks.push(gunSound.cloneNode());
+				c = 0;
+				for (var i = 0; i<30;i++)
+				ticks.push(gunSound.cloneNode());
+				glassTicks = [];
 				glassC = 0;
 				for (var i = 0; i<30;i++)
-        				glasTicks.push(glassBreak.cloneNode());
+					glassTicks.push(glassBreak.cloneNode());
+				missTicks = [];
+				missC = 0;
+				for (var i = 0; i<10;i++) {
+					glassTicks.push(scream.cloneNode());
+					glassTicks.push(cat.cloneNode());
+					glassTicks.push(ugh.cloneNode());
+					glassTicks.push(noNoNo.cloneNode());
+				}
 				$('#nem_nyomnam_meg').click( () => {
 					$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
 					$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
@@ -203,12 +216,12 @@
 						event.preventDefault();
 						$(event.target).css('visibility','hidden');
 						glassC = (glassC + 1)%30;
-        					glassTicks[glassC].play();
+						glassTicks[glassC].play();
 					});
 					airHorn.play();
 					$('body').click( () => {
 						c = (c + 1)%30;
-        					ticks[c].play();
+						ticks[c].play();
 					});
 				});
 			});
