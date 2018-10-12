@@ -182,9 +182,9 @@
 			var gunSound = new Audio('http://soundbible.com/grab.php?id=1960&type=mp3');
 			var glassBreak = new Audio('https://www.freespecialeffects.co.uk/soundfx/glass/glass_break_03.wav');
 			var noNoNo = new Audio('https://www.myinstants.com/instant/cleveland-no/');
-			var scream = new Audio('https://www.freesoundeffects.com/music_1212344070466429_file7d0665438e81d8eceb98c1e31fca80c1.wav');
+			var scream = new Audio('https://www.shockwave-sound.com/sound-effects/scream-sounds/female_scream.wav');
 			var cat = new Audio('http://soundbible.com/1509-Cat-Scream.html');
-			var ugh = new Audio('https://www.freesoundeffects.com/music_7451511603466426_file7d0665438e81d8eceb98c1e31fca80c1.wav');
+			var aargh = new Audio('https://www.shockwave-sound.com/sound-effects/scream-sounds/aaa.wav');
 			$( () => {
 				airHorn.load();
 				gunSound.load();
@@ -202,7 +202,7 @@
 				for (var i = 0; i<10;i++) {
 					glassTicks.push(scream.cloneNode());
 					glassTicks.push(cat.cloneNode());
-					glassTicks.push(ugh.cloneNode());
+					glassTicks.push(aargh.cloneNode());
 					glassTicks.push(noNoNo.cloneNode());
 				}
 				$('#nem_nyomnam_meg').click( () => {
@@ -212,8 +212,13 @@
 					$('body').css('backgroundSize', 'cover');
 					$('#nem_nyomnam_meg').css('visibility','hidden')
 					$('a').contents().unwrap();
+					$('body').click( (event) => {
+						missC = (missC + 1)%30;
+						missTicks[missC].play();
+					});
 					$('button').click( (event) => {
 						event.preventDefault();
+						event.stopPropagation();
 						$(event.target).css('visibility','hidden');
 						glassC = (glassC + 1)%30;
 						glassTicks[glassC].play();
