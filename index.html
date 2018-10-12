@@ -193,6 +193,7 @@
 					$('body').css('backgroundImage', 'url(https://i.pinimg.com/originals/40/d8/b9/40d8b91c48a86543c0ddd2b17aa48e37.jpg)');
 					$('body').css('backgroundSize', 'cover');
 					$('#nem_nyomnam_meg').css('visibility','hidden')
+					$('a').contents().unwrap();
 					$('button').click( (event) => {
 						event.preventDefault();
 						$(event.target).css('visibility','hidden')
