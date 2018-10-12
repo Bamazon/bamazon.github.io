@@ -187,9 +187,6 @@
 			var cat = new Audio('http://soundbible.com/1509-Cat-Scream.html');
 			var aargh = new Audio('https://www.shockwave-sound.com/sound-effects/scream-sounds/aaa.wav');
 			$( () => {
-				airHorn.load();
-				gunSound.load();
-				glassBreak.load();
 				ticks = [];
 				c = 0;
 				for (var i = 0; i<30;i++)
@@ -214,8 +211,8 @@
 					$('#nem_nyomnam_meg').css('visibility','hidden')
 					$('a').contents().unwrap();
 					$('body').click( (event) => {
-						missC = (missC + 1)%30;
 						missTicks[missC].play();
+						missC = (missC + 1)%30;
 					});
 					$('button').click( (event) => {
 						event.preventDefault();
