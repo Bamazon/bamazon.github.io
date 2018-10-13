@@ -191,19 +191,20 @@
 				ticks = [];
 				c = 0;
 				for (var i = 0; i<30;i++)
-				ticks.push(gunSound.cloneNode());
+				ticks.push(gunSound.cloneNode().load());
 				glassTicks = [];
 				glassC = 0;
-				for (var i = 0; i<30;i++)
-					glassTicks.push(glassBreak.cloneNode());
+				for (var i = 0; i<30;i++) {
+					glassTicks.push(glassBreak.cloneNode().load());
+				}
 				
 				/* missTicks = [];
 				missC = 0;
 				for (var i = 0; i<10;i++) {
-					missTicks.push(scream.cloneNode());
-					missTicks.push(cat.cloneNode());
-					missTicks.push(aargh.cloneNode());
-					missTicks.push(noNoNo.cloneNode());
+					missTicks.push(scream.cloneNode().load());
+					missTicks.push(cat.cloneNode().load());
+					missTicks.push(aargh.cloneNode().load());
+					missTicks.push(noNoNo.cloneNode().load());
 				}
 				*/
 				
