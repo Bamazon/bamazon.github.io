@@ -191,23 +191,16 @@
 				ticks = [];
 				c = 0;
 				for (var i = 0; i<30;i++)
-				ticks.push(gunSound.cloneNode().load());
+				ticks.push(gunSound.cloneNode());
+				for (var i = 0; i<30; i++)
+					glassTicks[i].load();
 				glassTicks = [];
 				glassC = 0;
 				for (var i = 0; i<30;i++) {
-					glassTicks.push(glassBreak.cloneNode().load());
+					glassTicks.push(glassBreak.cloneNode());
+				for (var i = 0; i<30; i++)
+					glassTicks[i].load();
 				}
-				
-				/* missTicks = [];
-				missC = 0;
-				for (var i = 0; i<10;i++) {
-					missTicks.push(scream.cloneNode().load());
-					missTicks.push(cat.cloneNode().load());
-					missTicks.push(aargh.cloneNode().load());
-					missTicks.push(noNoNo.cloneNode().load());
-				}
-				*/
-				
 				$('#nem_nyomnam_meg').click( () => {
 					$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
 					$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
