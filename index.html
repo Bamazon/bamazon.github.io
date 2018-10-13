@@ -191,16 +191,15 @@
 				ticks = [];
 				c = 0;
 				for (var i = 0; i<30;i++)
-				ticks.push(gunSound.cloneNode());
+					ticks.push(gunSound.cloneNode());
 				for (var i = 0; i<30; i++)
 					ticks[i].load();
 				glassTicks = [];
 				glassC = 0;
-				for (var i = 0; i<30;i++) {
+				for (var i = 0; i<30;i++)
 					glassTicks.push(glassBreak.cloneNode());
 				for (var i = 0; i<30; i++)
 					glassTicks[i].load();
-				}
 				$('#nem_nyomnam_meg').click( () => {
 					$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
 					$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
