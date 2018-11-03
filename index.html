@@ -1,600 +1,618 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>BME-AMAZON</title>
-		<link rel="SHORTCUT ICON" href="https://cdn.shopify.com/s/files/1/0185/5092/products/symbols-0107_800x.png?v=1369543753">
-		<link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
-		<script type="text/javascript">
-			var canvas = document.querySelector('.snow'),
-    ctx = canvas.getContext('2d'),
-    windowW = window.innerWidth,
-    windowH = window.innerHeight,
-    numFlakes = 200,
-    flakes = [];
 
-function Flake(x, y) {
-  var maxWeight = 5,
-      maxSpeed = 3;
-  
-  this.x = x;
-  this.y = y;
-  this.r = randomBetween(0, 1);
-  this.a = randomBetween(0, Math.PI);
-  this.aStep = 0.01;
+<head>
+    <meta charset="UTF-8">
+    <title>BME-AMAZON</title>
+    <link rel="SHORTCUT ICON" href="https://cdn.shopify.com/s/files/1/0185/5092/products/symbols-0107_800x.png?v=1369543753">
+    <link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
+    <script type="text/javascript">
+        var canvas = document.querySelector('.snow'),
+            ctx = canvas.getContext('2d'),
+            windowW = window.innerWidth,
+            windowH = window.innerHeight,
+            numFlakes = 200,
+            flakes = [];
 
-  
-  this.weight = randomBetween(2, maxWeight);
-  this.alpha = (this.weight / maxWeight);
-  this.speed = (this.weight / maxWeight) * maxSpeed;
-  
-  this.update = function() {
-    this.x += Math.cos(this.a) * this.r;
-    this.a += this.aStep;
-    
-    this.y += this.speed;
-  }
-  
-}
+        function Flake(x, y) {
+            var maxWeight = 5,
+                maxSpeed = 3;
 
-function init() {
-  var i = numFlakes,
-      flake,
-      x,
-      y;
-  
-  while (i--) {
-    x = randomBetween(0, windowW, true);
-    y = randomBetween(0, windowH, true);
-    
-    
-    flake = new Flake(x, y);
-    flakes.push(flake);
-  }
-  
-  scaleCanvas();
-  loop();  
-}
+            this.x = x;
+            this.y = y;
+            this.r = randomBetween(0, 1);
+            this.a = randomBetween(0, Math.PI);
+            this.aStep = 0.01;
 
-function scaleCanvas() {
-  canvas.width = windowW;
-  canvas.height = windowH;
-}
+            this.weight = randomBetween(2, maxWeight);
+            this.alpha = (this.weight / maxWeight);
+            this.speed = (this.weight / maxWeight) * maxSpeed;
 
-function loop() {
-  var i = flakes.length,
-      z,
-      dist,
-      flakeA,
-      flakeB;
-  
-  // clear canvas
-  ctx.save();
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.clearRect(0, 0, windowW, windowH);
-  ctx.restore();
-  
-  // loop of hell
-  while (i--) {
-    
-    flakeA = flakes[i];
-    flakeA.update();
-    
+            this.update = function() {
+                this.x += Math.cos(this.a) * this.r;
+                this.a += this.aStep;
 
-    /*for (z = 0; z < flakes.length; z++) {
-      flakeB = flakes[z];
-      if (flakeA !== flakeB && distanceBetween(flakeA, flakeB) < 150) {          
-        ctx.beginPath();
-        ctx.moveTo(flakeA.x, flakeA.y);
-        ctx.lineTo(flakeB.x, flakeB.y);
-        ctx.strokeStyle = '#444444';
-        ctx.stroke();
-        ctx.closePath();
-      }
-    }*/
+                this.y += this.speed;
+            }
 
-    
-    ctx.beginPath();
-    ctx.arc(flakeA.x, flakeA.y, flakeA.weight, 0, 2 * Math.PI, false);
-    ctx.fillStyle = 'rgba(255, 255, 255, ' + flakeA.alpha + ')';
-    ctx.fill();
-    
-    if (flakeA.y >= windowH) {
-      flakeA.y = -flakeA.weight;
-    }  
-  }
-  
-  requestAnimationFrame(loop);
-}
+        }
 
-function randomBetween(min, max, round) {
-  var num = Math.random() * (max - min + 1) + min;
+        function init() {
+            var i = numFlakes,
+                flake,
+                x,
+                y;
 
-  if (round) {
-    return Math.floor(num);
-  } else {
-    return num;
-  }
-}
+            while (i--) {
+                x = randomBetween(0, windowW, true);
+                y = randomBetween(0, windowH, true);
 
-function distanceBetween(vector1, vector2) {
-  var dx = vector2.x - vector1.x,
-      dy = vector2.y - vector1.y;
+                flake = new Flake(x, y);
+                flakes.push(flake);
+            }
 
-  return Math.sqrt(dx*dx + dy*dy);
-}
+            scaleCanvas();
+            loop();
+        }
 
-init();
-		</script>
-		<script type="text/javascript">
-			// <![CDATA[
-			var colour="#ff00f0";
-			var sparkles=120;
-			
-			/****************************
-			*  Tinkerbell Magic Sparkle *
-			* (c) 2005 mf2fm web-design *
-			*  http://www.mf2fm.com/rv  *
-			* DON'T EDIT BELOW THIS BOX *
-			****************************/
-			var x=ox=400;
-			var y=oy=300;
-			var swide=800;
-			var shigh=600;
-			var sleft=sdown=0;
-			var tiny=new Array();
-			var star=new Array();
-			var starv=new Array();
-			var starx=new Array();
-			var stary=new Array();
-			var tinyx=new Array();
-			var tinyy=new Array();
-			var tinyv=new Array();
-			
-			window.onload=function() { if (document.getElementById) {
-			  var i, rats, rlef, rdow;
-			  for (var i=0; i<sparkles; i++) {
-			    var rats=createDiv(3, 3);
-			    rats.style.visibility="hidden";
-			    document.body.appendChild(tiny[i]=rats);
-			    starv[i]=0;
-			    tinyv[i]=0;
-			    var rats=createDiv(5, 5);
-			    rats.style.backgroundColor="transparent";
-			    rats.style.visibility="hidden";
-			    var rlef=createDiv(1, 5);
-			    var rdow=createDiv(5, 1);
-			    rats.appendChild(rlef);
-			    rats.appendChild(rdow);
-			    rlef.style.top="2px";
-			    rlef.style.left="0px";
-			    rdow.style.top="0px";
-			    rdow.style.left="2px";
-			    document.body.appendChild(star[i]=rats);
-			  }
-			  set_width();
-			  sparkle();
-			}}
-			
-			function sparkle() {
-			  var c;
-			  if (x!=ox || y!=oy) {
-			    ox=x;
-			    oy=y;
-			    for (c=0; c<sparkles; c++) if (!starv[c]) {
-			      star[c].style.left=(starx[c]=x)+"px";
-			      star[c].style.top=(stary[c]=y)+"px";
-			      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
-			      star[c].style.visibility="visible";
-			      starv[c]=50;
-			      break;
-			    }
-			  }
-			  for (c=0; c<sparkles; c++) {
-			    if (starv[c]) update_star(c);
-			    if (tinyv[c]) update_tiny(c);
-			  }
-			  setTimeout("sparkle()", 40);
-			}
-			
-			function update_star(i) {
-			  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
-			  if (starv[i]) {
-			    stary[i]+=1+Math.random()*3;
-			    if (stary[i]<shigh+sdown) {
-			      star[i].style.top=stary[i]+"px";
-			      starx[i]+=(i%5-2)/5;
-			      star[i].style.left=starx[i]+"px";
-			    }
-			    else {
-			      star[i].style.visibility="hidden";
-			      starv[i]=0;
-			      return;
-			    }
-			  }
-			  else {
-			    tinyv[i]=50;
-			    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
-			    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
-			    tiny[i].style.width="2px";
-			    tiny[i].style.height="2px";
-			    star[i].style.visibility="hidden";
-			    tiny[i].style.visibility="visible"
-			  }
-			}
-			
-			function update_tiny(i) {
-			  if (--tinyv[i]==25) {
-			    tiny[i].style.width="1px";
-			    tiny[i].style.height="1px";
-			  }
-			  if (tinyv[i]) {
-			    tinyy[i]+=1+Math.random()*3;
-			    if (tinyy[i]<shigh+sdown) {
-			      tiny[i].style.top=tinyy[i]+"px";
-			      tinyx[i]+=(i%5-2)/5;
-			      tiny[i].style.left=tinyx[i]+"px";
-			    }
-			    else {
-			      tiny[i].style.visibility="hidden";
-			      tinyv[i]=0;
-			      return;
-			    }
-			  }
-			  else tiny[i].style.visibility="hidden";
-			}
-			
-			document.onmousemove=mouse;
-			function mouse(e) {
-			  set_scroll();
-			  y=(e)?e.pageY:event.y+sdown;
-			  x=(e)?e.pageX:event.x+sleft;
-			}
-			
-			function set_scroll() {
-			  if (typeof(self.pageYOffset)=="number") {
-			    sdown=self.pageYOffset;
-			    sleft=self.pageXOffset;
-			  }
-			  else if (document.body.scrollTop || document.body.scrollLeft) {
-			    sdown=document.body.scrollTop;
-			    sleft=document.body.scrollLeft;
-			  }
-			  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
-			    sleft=document.documentElement.scrollLeft;
-				sdown=document.documentElement.scrollTop;
-			  }
-			  else {
-			    sdown=0;
-			    sleft=0;
-			  }
-			}
-			
-			window.onresize=set_width;
-			function set_width() {
-			  if (typeof(self.innerWidth)=="number") {
-			    swide=self.innerWidth;
-			    shigh=self.innerHeight;
-			  }
-			  else if (document.documentElement && document.documentElement.clientWidth) {
-			    swide=document.documentElement.clientWidth;
-			    shigh=document.documentElement.clientHeight;
-			  }
-			  else if (document.body.clientWidth) {
-			    swide=document.body.clientWidth;
-			    shigh=document.body.clientHeight;
-			  }
-			}
-			
-			function createDiv(height, width) {
-			  var div=document.createElement("div");
-			  div.style.position="absolute";
-			  div.style.height=height+"px";
-			  div.style.width=width+"px";
-			  div.style.overflow="hidden";
-			  div.style.backgroundColor=colour;
-			  return (div);
-			}
-			// ]]>
-		</script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script type = "text/javascript">
-			var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
-			var gunSound = new Audio('http://soundbible.com/grab.php?id=1960&type=mp3');
-			var glassBreak = new Audio('https://www.freespecialeffects.co.uk/soundfx/glass/glass_break_03.wav');
-			/*
-			var noNoNo = new Audio('https://www.myinstants.com/instant/cleveland-no/');
-			var scream = new Audio('https://www.shockwave-sound.com/sound-effects/scream-sounds/female_scream.wav');
-			var cat = new Audio('http://soundbible.com/1509-Cat-Scream.html');
-			var aargh = new Audio('https://www.shockwave-sound.com/sound-effects/scream-sounds/aaa.wav');
-			*/
-			$( () => {
-				ticks = [];
-				c = 0;
-				for (var i = 0; i<30;i++)
-					ticks.push(gunSound.cloneNode());
-				for (var i = 0; i<30; i++)
-					ticks[i].load();
-				glassTicks = [];
-				glassC = 0;
-				for (var i = 0; i<30;i++)
-					glassTicks.push(glassBreak.cloneNode());
-				for (var i = 0; i<30; i++)
-					glassTicks[i].load();
-				$('#nem_nyomnam_meg').click( () => {
-					$('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
-					$('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
-					$('body').css('backgroundImage', 'url(https://i.pinimg.com/originals/40/d8/b9/40d8b91c48a86543c0ddd2b17aa48e37.jpg)');
-					$('body').css('backgroundSize', 'cover');
-					$('#nem_nyomnam_meg').css('visibility','hidden')
-					$('.glass').contents().unwrap();
-					/*
-					$('body').click( (event) => {
-						event.preventDefault();
-						missTicks[missC].play();
-						missC = (missC + 1)%30;
-					});
-					*/
-					glassC = (glassC + 1)%30;
-						glassTicks[glassC].play();
-					$('#iit').click ( () => {
-					  window.open('https://iit.bme.hu', '_blank'); 
-					});
-					$('#tnpl').click ( () => {
-					  window.open('/sznupdog.zip', '_blank'); 
-					});
-					$('button').click( (event) => {
-						event.preventDefault();
-						/*
-						event.stopPropagation();
-						*/
-						$(event.target).css('visibility','hidden');
-						glassC = (glassC + 1)%30;
-						glassTicks[glassC].play();
-					});
-					airHorn.play();
-					$('body').click( () => {
-						c = (c + 1)%30;
-						ticks[c].play();
-					});
-				});
-			});
-		</script>
-<style>
-html, body {
-     margin: 0;
-     padding: 0;
-     width: 100%;
-     height: 100%;
-     background: #2c3e50;
-     font-family: "Montserrat", sans-serif;
-     font-size: 16px;
-}
- body {
-     align-items: center;
-     align-content: center;
-     overflow: hidden;
-     background-image: url("https://i.giphy.com/media/6cpuREHM3Nohq/giphy.webp"); /* The image used */
-     /*background-position: top-left*/; /* Center the image */
-     background-repeat: no-repeat; /* Do not repeat the image */
-     /*background-size: cover;*/ /* Resize the background image to cover the entire container */
-}
- p {
-     color: #f1c40f;
-     font-size: 1.2rem;
-     width: 100%;
-     text-align: center;
-}
- .btn {
-     box-sizing: border-box;
-     -webkit-appearance: none;
-     -moz-appearance: none;
-     appearance: none;
-     background-color: transparent;
-     border: 2px solid #e74c3c;
-     border-radius: 0.6em;
-     color: #e74c3c;
-     cursor: pointer;
-     align-self: center;
-     font-size: 1rem;
-     font-weight: 400;
-     line-height: 1;
-     padding: 1.2em 2.8em;
-     text-decoration: none;
-     text-align: center;
-     text-transform: uppercase;
-     font-family: "Montserrat", sans-serif;
-     font-weight: 700;
-}
- .btn:hover, .btn:focus {
-     color: #fff;
-     outline: 0;
-}
- .first {
-     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-}
- .first:hover {
-     box-shadow: 0 0 40px 40px #e74c3c inset;
-}
- .second {
-     border-radius: 3em;
-     border-color: #1abc9c;
-     color: #fff;
-     background-image: linear-gradient(to right, rgba(26, 188, 156, 0.6), rgba(26, 188, 156, 0.6) 5%, #1abc9c 5%, #1abc9c 10%, rgba(26, 188, 156, 0.6) 10%, rgba(26, 188, 156, 0.6) 15%, #1abc9c 15%, #1abc9c 20%, rgba(26, 188, 156, 0.6) 20%, rgba(26, 188, 156, 0.6) 25%, #1abc9c 25%, #1abc9c 30%, rgba(26, 188, 156, 0.6) 30%, rgba(26, 188, 156, 0.6) 35%, #1abc9c 35%, #1abc9c 40%, rgba(26, 188, 156, 0.6) 40%, rgba(26, 188, 156, 0.6) 45%, #1abc9c 45%, #1abc9c 50%, rgba(26, 188, 156, 0.6) 50%, rgba(26, 188, 156, 0.6) 55%, #1abc9c 55%, #1abc9c 60%, rgba(26, 188, 156, 0.6) 60%, rgba(26, 188, 156, 0.6) 65%, #1abc9c 65%, #1abc9c 70%, rgba(26, 188, 156, 0.6) 70%, rgba(26, 188, 156, 0.6) 75%, #1abc9c 75%, #1abc9c 80%, rgba(26, 188, 156, 0.6) 80%, rgba(26, 188, 156, 0.6) 85%, #1abc9c 85%, #1abc9c 90%, rgba(26, 188, 156, 0.6) 90%, rgba(26, 188, 156, 0.6) 95%, #1abc9c 95%, #1abc9c 100%);
-     background-position: 0 0;
-     background-size: 100%;
-     transition: background 300ms ease-in-out;
-}
- .second:hover {
-     background-position: 100px;
-}
- .fourth {
-     border-color: #f1c40f;
-     color: #fff;
-     background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
-     background-position: 100%;
-     background-size: 400%;
-     transition: background 300ms ease-in-out;
-}
- .fourth:hover {
-     background-position: 0;
-}
- .fifth {
-     border-color: #8e44ad;
-     border-radius: 0;
-     color: #8e44ad;
-     position: relative;
-     overflow: hidden;
-     z-index: 1;
-     transition: color 150ms ease-in-out;
-}
- .fifth:after {
-     content: '';
-     position: absolute;
-     display: block;
-     top: 0;
-     left: 50%;
-     -webkit-transform: translateX(-50%);
-     transform: translateX(-50%);
-     width: 0;
-     height: 100%;
-     background: #8e44ad;
-     z-index: -1;
-     transition: width 150ms ease-in-out;
-}
- .fifth:hover {
-     color: #fff;
-}
- .fifth:hover:after {
-     width: 110%;
-}
- a {
-     text-decoration: none;
-}
- h1 {
-     margin: 0px;
-     padding-top: 20px;
-     font-size: 2rem;
-     text-align: center;
-     color: white;
-}
-.helper {
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-}
+        function scaleCanvas() {
+            canvas.width = windowW;
+            canvas.height = windowH;
+        }
 
-.neptun {
-    background: #3A6F9A;
-    vertical-align: middle;
-    max-height: 25px;
-    max-width: 160px;
-}
-	
-#iit {
-    position: fixed;
-    top: 75%;
-    left: 78%;
-    height: 25%;
-    width: 20%;
-    border: none;
-}
-	
-#tnpl {
-    position: fixed;
-    bottom: 0%;
-    left: 0%;
-    height: 20%;
-    width: 20%;
-    border: none;
-}
-	
-</style>
-	</head>
-	<body id = "body">
-		<canvas class="snow"></canvas>
-		<h1>Tárgyak</h1>
-		<p>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/targyak/BMEVIIIAB00?language=hu">
-			<button class="btn fourth">A programozás alapjai 3</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/A_programoz%C3%A1s_alapjai_3">
-			<button class="btn first">WIKI</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://jporta.iit.bme.hu/results/">
-			<button class="btn fifth">JPORTA</button>
-			</a>
-		</p>
-		<p>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://www.db.bme.hu/adatbazisok/">
-			<button class="btn fourth">Adatbázisok</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Adatb%C3%A1zisok">
-			<button class="btn first">WIKI</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://www.db.bme.hu/adatbazisok/eredmenyek">
-			<button class="btn fifth">Gyakorlat</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://fecske.db.bme.hu/#/student">
-			<button class="btn fifth">Fecske</button>
-			</a>
-		</p>
-		<p>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=226">
-			<button class="btn fourth">Kódolástechnika</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/K%C3%B3dol%C3%A1stechnika">
-			<button class="btn first">WIKI</button>
-			</a>
-		</p>
-		<p>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=221">
-			<button class="btn fourth">Kommunikációs hálózatok 1</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Kommunik%C3%A1ci%C3%B3s_h%C3%A1l%C3%B3zatok_1">
-			<button class="btn first">WIKI</button>
-			</a>
-		</p>
-		<p>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://fourier.hvt.bme.hu/course/view.php?id=3">
-			<button class="btn fourth">Rendszerelmélet</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Rendszerelm%C3%A9let">
-			<button class="btn first">WIKI</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://fourier.hvt.bme.hu/grade/report/user/index.php?id=3">
-			<button class="btn fifth">Pontok</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://fourier.hvt.bme.hu/mod/quiz/view.php?id=577">
-			<button class="btn fifth">2. Házi feladat</button>
-			</a>
-		</p>
-		<p>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/oktatas/tanszeki_targyak/BMEVIIIAB01?lang=hu">
-			<button class="btn fourth">Szoftvertechnológia</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Szoftvertechnol%C3%B3gia">
-			<button class="btn first">WIKI</button>
-			</a>
-		</p>
-		<p>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="http://www.cs.bme.hu/~cscsgy/vsz/">
-			<button class="btn fourth">Valószínűségszámítás</button>
-			</a>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Val%C3%B3sz%C3%ADn%C5%B1s%C3%A9gsz%C3%A1m%C3%ADt%C3%A1s">
-			<button class="btn first">WIKI</button>
-			</a>
-		</p>
-		<p id = "blue_buttons">
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://frame.neptun.bme.hu/hallgatoi/Login.aspx">
-				<button class="btn second">Neptun</button>
-			</a>
-			<button id ="nem_nyomnam_meg" class="btn second">NEM NYOMNÁM MEG <img src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/2000px-Speaker_Icon.svg.png" width="13 rem" height="13 rem" /></button>
-			<a class = "glass" target="_blank" rel="noopener noreferrer" href="https://www.vik.bme.hu/document/2311/original/ZHutem_osz_2018_09_13_info.pdf">
-				<button class="btn second">Ütemterv</button>
-			</a>
-		</p>
-		<div id = "iit"/>
-		<div id = "tnpl"/>
-	</body>
+        function loop() {
+            var i = flakes.length,
+                z,
+                dist,
+                flakeA,
+                flakeB;
+
+            // clear canvas
+            ctx.save();
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.clearRect(0, 0, windowW, windowH);
+            ctx.restore();
+
+            // loop of hell
+            while (i--) {
+
+                flakeA = flakes[i];
+                flakeA.update();
+
+                /*for (z = 0; z < flakes.length; z++) {
+                  flakeB = flakes[z];
+                  if (flakeA !== flakeB && distanceBetween(flakeA, flakeB) < 150) {          
+                    ctx.beginPath();
+                    ctx.moveTo(flakeA.x, flakeA.y);
+                    ctx.lineTo(flakeB.x, flakeB.y);
+                    ctx.strokeStyle = '#444444';
+                    ctx.stroke();
+                    ctx.closePath();
+                  }
+                }*/
+
+                ctx.beginPath();
+                ctx.arc(flakeA.x, flakeA.y, flakeA.weight, 0, 2 * Math.PI, false);
+                ctx.fillStyle = 'rgba(255, 255, 255, ' + flakeA.alpha + ')';
+                ctx.fill();
+
+                if (flakeA.y >= windowH) {
+                    flakeA.y = -flakeA.weight;
+                }
+            }
+
+            requestAnimationFrame(loop);
+        }
+
+        function randomBetween(min, max, round) {
+            var num = Math.random() * (max - min + 1) + min;
+
+            if (round) {
+                return Math.floor(num);
+            } else {
+                return num;
+            }
+        }
+
+        function distanceBetween(vector1, vector2) {
+            var dx = vector2.x - vector1.x,
+                dy = vector2.y - vector1.y;
+
+            return Math.sqrt(dx * dx + dy * dy);
+        }
+
+        init();
+    </script>
+    <script type="text/javascript">
+        // <![CDATA[
+        var colour = "#ff00f0";
+        var sparkles = 120;
+
+        /****************************
+         *  Tinkerbell Magic Sparkle *
+         * (c) 2005 mf2fm web-design *
+         *  http://www.mf2fm.com/rv  *
+         * DON'T EDIT BELOW THIS BOX *
+         ****************************/
+        var x = ox = 400;
+        var y = oy = 300;
+        var swide = 800;
+        var shigh = 600;
+        var sleft = sdown = 0;
+        var tiny = new Array();
+        var star = new Array();
+        var starv = new Array();
+        var starx = new Array();
+        var stary = new Array();
+        var tinyx = new Array();
+        var tinyy = new Array();
+        var tinyv = new Array();
+
+        window.onload = function() {
+            if (document.getElementById) {
+                var i, rats, rlef, rdow;
+                for (var i = 0; i < sparkles; i++) {
+                    var rats = createDiv(3, 3);
+                    rats.style.visibility = "hidden";
+                    document.body.appendChild(tiny[i] = rats);
+                    starv[i] = 0;
+                    tinyv[i] = 0;
+                    var rats = createDiv(5, 5);
+                    rats.style.backgroundColor = "transparent";
+                    rats.style.visibility = "hidden";
+                    var rlef = createDiv(1, 5);
+                    var rdow = createDiv(5, 1);
+                    rats.appendChild(rlef);
+                    rats.appendChild(rdow);
+                    rlef.style.top = "2px";
+                    rlef.style.left = "0px";
+                    rdow.style.top = "0px";
+                    rdow.style.left = "2px";
+                    document.body.appendChild(star[i] = rats);
+                }
+                set_width();
+                sparkle();
+            }
+        }
+
+        function sparkle() {
+            var c;
+            if (x != ox || y != oy) {
+                ox = x;
+                oy = y;
+                for (c = 0; c < sparkles; c++)
+                    if (!starv[c]) {
+                        star[c].style.left = (starx[c] = x) + "px";
+                        star[c].style.top = (stary[c] = y) + "px";
+                        star[c].style.clip = "rect(0px, 5px, 5px, 0px)";
+                        star[c].style.visibility = "visible";
+                        starv[c] = 50;
+                        break;
+                    }
+            }
+            for (c = 0; c < sparkles; c++) {
+                if (starv[c]) update_star(c);
+                if (tinyv[c]) update_tiny(c);
+            }
+            setTimeout("sparkle()", 40);
+        }
+
+        function update_star(i) {
+            if (--starv[i] == 25) star[i].style.clip = "rect(1px, 4px, 4px, 1px)";
+            if (starv[i]) {
+                stary[i] += 1 + Math.random() * 3;
+                if (stary[i] < shigh + sdown) {
+                    star[i].style.top = stary[i] + "px";
+                    starx[i] += (i % 5 - 2) / 5;
+                    star[i].style.left = starx[i] + "px";
+                } else {
+                    star[i].style.visibility = "hidden";
+                    starv[i] = 0;
+                    return;
+                }
+            } else {
+                tinyv[i] = 50;
+                tiny[i].style.top = (tinyy[i] = stary[i]) + "px";
+                tiny[i].style.left = (tinyx[i] = starx[i]) + "px";
+                tiny[i].style.width = "2px";
+                tiny[i].style.height = "2px";
+                star[i].style.visibility = "hidden";
+                tiny[i].style.visibility = "visible"
+            }
+        }
+
+        function update_tiny(i) {
+            if (--tinyv[i] == 25) {
+                tiny[i].style.width = "1px";
+                tiny[i].style.height = "1px";
+            }
+            if (tinyv[i]) {
+                tinyy[i] += 1 + Math.random() * 3;
+                if (tinyy[i] < shigh + sdown) {
+                    tiny[i].style.top = tinyy[i] + "px";
+                    tinyx[i] += (i % 5 - 2) / 5;
+                    tiny[i].style.left = tinyx[i] + "px";
+                } else {
+                    tiny[i].style.visibility = "hidden";
+                    tinyv[i] = 0;
+                    return;
+                }
+            } else tiny[i].style.visibility = "hidden";
+        }
+
+        document.onmousemove = mouse;
+
+        function mouse(e) {
+            set_scroll();
+            y = (e) ? e.pageY : event.y + sdown;
+            x = (e) ? e.pageX : event.x + sleft;
+        }
+
+        function set_scroll() {
+            if (typeof(self.pageYOffset) == "number") {
+                sdown = self.pageYOffset;
+                sleft = self.pageXOffset;
+            } else if (document.body.scrollTop || document.body.scrollLeft) {
+                sdown = document.body.scrollTop;
+                sleft = document.body.scrollLeft;
+            } else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+                sleft = document.documentElement.scrollLeft;
+                sdown = document.documentElement.scrollTop;
+            } else {
+                sdown = 0;
+                sleft = 0;
+            }
+        }
+
+        window.onresize = set_width;
+
+        function set_width() {
+            if (typeof(self.innerWidth) == "number") {
+                swide = self.innerWidth;
+                shigh = self.innerHeight;
+            } else if (document.documentElement && document.documentElement.clientWidth) {
+                swide = document.documentElement.clientWidth;
+                shigh = document.documentElement.clientHeight;
+            } else if (document.body.clientWidth) {
+                swide = document.body.clientWidth;
+                shigh = document.body.clientHeight;
+            }
+        }
+
+        function createDiv(height, width) {
+            var div = document.createElement("div");
+            div.style.position = "absolute";
+            div.style.height = height + "px";
+            div.style.width = width + "px";
+            div.style.overflow = "hidden";
+            div.style.backgroundColor = colour;
+            return (div);
+        }
+        // ]]>
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
+        var gunSound = new Audio('http://soundbible.com/grab.php?id=1960&type=mp3');
+        var glassBreak = new Audio('https://www.freespecialeffects.co.uk/soundfx/glass/glass_break_03.wav');
+        /*
+        var noNoNo = new Audio('https://www.myinstants.com/instant/cleveland-no/');
+        var scream = new Audio('https://www.shockwave-sound.com/sound-effects/scream-sounds/female_scream.wav');
+        var cat = new Audio('http://soundbible.com/1509-Cat-Scream.html');
+        var aargh = new Audio('https://www.shockwave-sound.com/sound-effects/scream-sounds/aaa.wav');
+        */
+        $(() => {
+            ticks = [];
+            c = 0;
+            for (var i = 0; i < 30; i++)
+                ticks.push(gunSound.cloneNode());
+            for (var i = 0; i < 30; i++)
+                ticks[i].load();
+            glassTicks = [];
+            glassC = 0;
+            for (var i = 0; i < 30; i++)
+                glassTicks.push(glassBreak.cloneNode());
+            for (var i = 0; i < 30; i++)
+                glassTicks[i].load();
+            $('#nem_nyomnam_meg').click(() => {
+                $('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
+                $('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
+                $('body').css('backgroundImage', 'url(https://i.pinimg.com/originals/40/d8/b9/40d8b91c48a86543c0ddd2b17aa48e37.jpg)');
+                $('body').css('backgroundSize', 'cover');
+                $('#nem_nyomnam_meg').css('visibility', 'hidden')
+                $('.glass').contents().unwrap();
+                /*
+                $('body').click( (event) => {
+                	event.preventDefault();
+                	missTicks[missC].play();
+                	missC = (missC + 1)%30;
+                });
+                */
+                glassC = (glassC + 1) % 30;
+                glassTicks[glassC].play();
+                $('#iit').click(() => {
+                    window.open('https://iit.bme.hu', '_blank');
+                });
+                $('#tnpl').click(() => {
+                    window.open('/sznupdog.zip', '_blank');
+                });
+                $('button').click((event) => {
+                    event.preventDefault();
+                    /*
+                    event.stopPropagation();
+                    */
+                    $(event.target).css('visibility', 'hidden');
+                    glassC = (glassC + 1) % 30;
+                    glassTicks[glassC].play();
+                });
+                airHorn.play();
+                $('body').click(() => {
+                    c = (c + 1) % 30;
+                    ticks[c].play();
+                });
+            });
+        });
+    </script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #2c3e50;
+            font-family: "Montserrat", sans-serif;
+            font-size: 16px;
+        }
+        
+        body {
+            align-items: center;
+            align-content: center;
+            overflow: hidden;
+            background-image: url("https://i.giphy.com/media/6cpuREHM3Nohq/giphy.webp");
+            /* The image used */
+            /*background-position: top-left*/
+            ;
+            /* Center the image */
+            background-repeat: no-repeat;
+            /* Do not repeat the image */
+            /*background-size: cover;*/
+            /* Resize the background image to cover the entire container */
+        }
+        
+        p {
+            color: #f1c40f;
+            font-size: 1.2rem;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn {
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid #e74c3c;
+            border-radius: 0.6em;
+            color: #e74c3c;
+            cursor: pointer;
+            align-self: center;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1;
+            padding: 1.2em 2.8em;
+            text-decoration: none;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+        }
+        
+        .btn:hover,
+        .btn:focus {
+            color: #fff;
+            outline: 0;
+        }
+        
+        .first {
+            transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+        }
+        
+        .first:hover {
+            box-shadow: 0 0 40px 40px #e74c3c inset;
+        }
+        
+        .second {
+            border-radius: 3em;
+            border-color: #1abc9c;
+            color: #fff;
+            background-image: linear-gradient(to right, rgba(26, 188, 156, 0.6), rgba(26, 188, 156, 0.6) 5%, #1abc9c 5%, #1abc9c 10%, rgba(26, 188, 156, 0.6) 10%, rgba(26, 188, 156, 0.6) 15%, #1abc9c 15%, #1abc9c 20%, rgba(26, 188, 156, 0.6) 20%, rgba(26, 188, 156, 0.6) 25%, #1abc9c 25%, #1abc9c 30%, rgba(26, 188, 156, 0.6) 30%, rgba(26, 188, 156, 0.6) 35%, #1abc9c 35%, #1abc9c 40%, rgba(26, 188, 156, 0.6) 40%, rgba(26, 188, 156, 0.6) 45%, #1abc9c 45%, #1abc9c 50%, rgba(26, 188, 156, 0.6) 50%, rgba(26, 188, 156, 0.6) 55%, #1abc9c 55%, #1abc9c 60%, rgba(26, 188, 156, 0.6) 60%, rgba(26, 188, 156, 0.6) 65%, #1abc9c 65%, #1abc9c 70%, rgba(26, 188, 156, 0.6) 70%, rgba(26, 188, 156, 0.6) 75%, #1abc9c 75%, #1abc9c 80%, rgba(26, 188, 156, 0.6) 80%, rgba(26, 188, 156, 0.6) 85%, #1abc9c 85%, #1abc9c 90%, rgba(26, 188, 156, 0.6) 90%, rgba(26, 188, 156, 0.6) 95%, #1abc9c 95%, #1abc9c 100%);
+            background-position: 0 0;
+            background-size: 100%;
+            transition: background 300ms ease-in-out;
+        }
+        
+        .second:hover {
+            background-position: 100px;
+        }
+        
+        .fourth {
+            border-color: #f1c40f;
+            color: #fff;
+            background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+            background-position: 100%;
+            background-size: 400%;
+            transition: background 300ms ease-in-out;
+        }
+        
+        .fourth:hover {
+            background-position: 0;
+        }
+        
+        .fifth {
+            border-color: #8e44ad;
+            border-radius: 0;
+            color: #8e44ad;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: color 150ms ease-in-out;
+        }
+        
+        .fifth:after {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            width: 0;
+            height: 100%;
+            background: #8e44ad;
+            z-index: -1;
+            transition: width 150ms ease-in-out;
+        }
+        
+        .fifth:hover {
+            color: #fff;
+        }
+        
+        .fifth:hover:after {
+            width: 110%;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        h1 {
+            margin: 0px;
+            padding-top: 20px;
+            font-size: 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .helper {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+        
+        .neptun {
+            background: #3A6F9A;
+            vertical-align: middle;
+            max-height: 25px;
+            max-width: 160px;
+        }
+        
+        #iit {
+            position: fixed;
+            top: 75%;
+            left: 78%;
+            height: 25%;
+            width: 20%;
+            border: none;
+        }
+        
+        #tnpl {
+            position: fixed;
+            bottom: 0%;
+            left: 0%;
+            height: 20%;
+            width: 20%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <canvas class="snow"></canvas>
+    <h1>Tárgyak</h1>
+    <p>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/targyak/BMEVIIIAB00?language=hu">
+            <button class="btn fourth">A programozás alapjai 3</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/A_programoz%C3%A1s_alapjai_3">
+            <button class="btn first">WIKI</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://jporta.iit.bme.hu/results/">
+            <button class="btn fifth">JPORTA</button>
+        </a>
+    </p>
+    <p>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.db.bme.hu/adatbazisok/">
+            <button class="btn fourth">Adatbázisok</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Adatb%C3%A1zisok">
+            <button class="btn first">WIKI</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.db.bme.hu/adatbazisok/eredmenyek">
+            <button class="btn fifth">Gyakorlat</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://fecske.db.bme.hu/#/student">
+            <button class="btn fifth">Fecske</button>
+        </a>
+    </p>
+    <p>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=226">
+            <button class="btn fourth">Kódolástechnika</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/K%C3%B3dol%C3%A1stechnika">
+            <button class="btn first">WIKI</button>
+        </a>
+    </p>
+    <p>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://moodle.hit.bme.hu/course/view.php?id=221">
+            <button class="btn fourth">Kommunikációs hálózatok 1</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Kommunik%C3%A1ci%C3%B3s_h%C3%A1l%C3%B3zatok_1">
+            <button class="btn first">WIKI</button>
+        </a>
+    </p>
+    <p>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://fourier.hvt.bme.hu/course/view.php?id=3">
+            <button class="btn fourth">Rendszerelmélet</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Rendszerelm%C3%A9let">
+            <button class="btn first">WIKI</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://fourier.hvt.bme.hu/grade/report/user/index.php?id=3">
+            <button class="btn fifth">Pontok</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://fourier.hvt.bme.hu/mod/quiz/view.php?id=577">
+            <button class="btn fifth">2. Házi feladat</button>
+        </a>
+    </p>
+    <p>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/oktatas/tanszeki_targyak/BMEVIIIAB01?lang=hu">
+            <button class="btn fourth">Szoftvertechnológia</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Szoftvertechnol%C3%B3gia">
+            <button class="btn first">WIKI</button>
+        </a>
+    </p>
+    <p>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="http://www.cs.bme.hu/~cscsgy/vsz/">
+            <button class="btn fourth">Valószínűségszámítás</button>
+        </a>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Val%C3%B3sz%C3%ADn%C5%B1s%C3%A9gsz%C3%A1m%C3%ADt%C3%A1s">
+            <button class="btn first">WIKI</button>
+        </a>
+    </p>
+    <p id="blue_buttons">
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://frame.neptun.bme.hu/hallgatoi/Login.aspx">
+            <button class="btn second">Neptun</button>
+        </a>
+        <button id="nem_nyomnam_meg" class="btn second">NEM NYOMNÁM MEG <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/2000px-Speaker_Icon.svg.png" width="13 rem" height="13 rem" /></button>
+        <a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.vik.bme.hu/document/2311/original/ZHutem_osz_2018_09_13_info.pdf">
+            <button class="btn second">Ütemterv</button>
+        </a>
+    </p>
+    <div id="iit" />
+    <div id="tnpl" />
+</body>
+
 </html>
