@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BAMAZON</title>
+		<link rel="SHORTCUT ICON" href="https://cdn.shopify.com/s/files/1/0185/5092/products/symbols-0107_800x.png?v=1369543753">
+		<link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
+		<script type="text/javascript">
+			/*
+			// <![CDATA[
+			var colour = "#1254b4";
+			var sparkles = 120;*/
+			/****************************
+			 *  Tinkerbell Magic Sparkle *
+			 * (c) 2005 mf2fm web-design *
+			 *  http://www.mf2fm.com/rv  *
+			 * DON'T EDIT BELOW THIS BOX *
+			 ****************************/
+			/*var x = ox = 400;
+			var y = oy = 300;
+			var swide = 800;
+			var shigh = 600;
+			var sleft = sdown = 0;
+			var tiny = new Array();
+			var star = new Array();
+			var starv = new Array();
+			var starx = new Array();
+			var stary = new Array();
+			var tinyx = new Array();
+			var tinyy = new Array();
+			var tinyv = new Array();
+			
+			window.onload = function() {
+			    if (document.getElementById) {
+			        var i, rats, rlef, rdow;
+			        for (var i = 0; i < sparkles; i++) {
+			            var rats = createDiv(3, 3);
+			            rats.style.visibility = "hidden";
+			            document.body.appendChild(tiny[i] = rats);
+			            starv[i] = 0;
+			            tinyv[i] = 0;
+			            var rats = createDiv(5, 5);
+			            rats.style.backgroundColor = "transparent";
+			            rats.style.visibility = "hidden";
+			            var rlef = createDiv(1, 5);
+			            var rdow = createDiv(5, 1);
+			            rats.appendChild(rlef);
+			            rats.appendChild(rdow);
+			            rlef.style.top = "2px";
+			            rlef.style.left = "0px";
+			            rdow.style.top = "0px";
+			            rdow.style.left = "2px";
+			            document.body.appendChild(star[i] = rats);
+			        }
+			        set_width();
+			        sparkle();
+			    }
+			}
+			
+			function sparkle() {
+			    var c;
+			    if (x != ox || y != oy) {
+			        ox = x;
+			        oy = y;
+			        for (c = 0; c < sparkles; c++)
+			            if (!starv[c]) {
+			                star[c].style.left = (starx[c] = x) + "px";
+			                star[c].style.top = (stary[c] = y) + "px";
+			                star[c].style.clip = "rect(0px, 5px, 5px, 0px)";
+			                star[c].style.visibility = "visible";
+			                starv[c] = 50;
+			                break;
+			            }
+			    }
+			    for (c = 0; c < sparkles; c++) {
+			        if (starv[c]) update_star(c);
+			        if (tinyv[c]) update_tiny(c);
+			    }
+			    setTimeout("sparkle()", 40);
+			}
+			
+			function update_star(i) {
+			    if (--starv[i] == 25) star[i].style.clip = "rect(1px, 4px, 4px, 1px)";
+			    if (starv[i]) {
+			        stary[i] += 1 + Math.random() * 3;
+			        if (stary[i] < shigh + sdown) {
+			            star[i].style.top = stary[i] + "px";
+			            starx[i] += (i % 5 - 2) / 5;
+			            star[i].style.left = starx[i] + "px";
+			        } else {
+			            star[i].style.visibility = "hidden";
+			            starv[i] = 0;
+			            return;
+			        }
+			    } else {
+			        tinyv[i] = 50;
+			        tiny[i].style.top = (tinyy[i] = stary[i]) + "px";
+			        tiny[i].style.left = (tinyx[i] = starx[i]) + "px";
+			        tiny[i].style.width = "2px";
+			        tiny[i].style.height = "2px";
+			        star[i].style.visibility = "hidden";
+			        tiny[i].style.visibility = "visible"
+			    }
+			}
+			
+			function update_tiny(i) {
+			    if (--tinyv[i] == 25) {
+			        tiny[i].style.width = "1px";
+			        tiny[i].style.height = "1px";
+			    }
+			    if (tinyv[i]) {
+			        tinyy[i] += 1 + Math.random() * 3;
+			        if (tinyy[i] < shigh + sdown) {
+			            tiny[i].style.top = tinyy[i] + "px";
+			            tinyx[i] += (i % 5 - 2) / 5;
+			            tiny[i].style.left = tinyx[i] + "px";
+			        } else {
+			            tiny[i].style.visibility = "hidden";
+			            tinyv[i] = 0;
+			            return;
+			        }
+			    } else tiny[i].style.visibility = "hidden";
+			}
+			
+			document.onmousemove = mouse;
+			
+			function mouse(e) {
+			    set_scroll();
+			    y = (e) ? e.pageY : event.y + sdown;
+			    x = (e) ? e.pageX : event.x + sleft;
+			}
+			
+			function set_scroll() {
+			    if (typeof(self.pageYOffset) == "number") {
+			        sdown = self.pageYOffset;
+			        sleft = self.pageXOffset;
+			    } else if (document.body.scrollTop || document.body.scrollLeft) {
+			        sdown = document.body.scrollTop;
+			        sleft = document.body.scrollLeft;
+			    } else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+			        sleft = document.documentElement.scrollLeft;
+			        sdown = document.documentElement.scrollTop;
+			    } else {
+			        sdown = 0;
+			        sleft = 0;
+			    }
+			}
+			
+			window.onresize = set_width;
+			
+			function set_width() {
+			    if (typeof(self.innerWidth) == "number") {
+			        swide = self.innerWidth;
+			        shigh = self.innerHeight;
+			    } else if (document.documentElement && document.documentElement.clientWidth) {
+			        swide = document.documentElement.clientWidth;
+			        shigh = document.documentElement.clientHeight;
+			    } else if (document.body.clientWidth) {
+			        swide = document.body.clientWidth;
+			        shigh = document.body.clientHeight;
+			    }
+			}
+			
+			function createDiv(height, width) {
+			    var div = document.createElement("div");
+			    div.style.position = "absolute";
+			    div.style.height = height + "px";
+			    div.style.width = width + "px";
+			    div.style.overflow = "hidden";
+			    div.style.backgroundColor = colour;
+			    return (div);
+			}*/
+			// ]]>
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			var airHorn = new Audio('https://www.myinstants.com/media/sounds/mlg-airhorn.mp3');
+			var gunSound = new Audio('http://soundbible.com/grab.php?id=1960&type=mp3');
+			var glassBreak = new Audio('https://www.freespecialeffects.co.uk/soundfx/glass/glass_break_03.wav');
+			/*
+			var noNoNo = new Audio('https://www.myinstants.com/instant/cleveland-no/');
+			var scream = new Audio('https://www.shockwave-sound.com/sound-effects/scream-sounds/female_scream.wav');
+			var cat = new Audio('http://soundbible.com/1509-Cat-Scream.html');
+			var aargh = new Audio('https://www.shockwave-sound.com/sound-effects/scream-sounds/aaa.wav');
+			*/
+			$(() => {
+			    ticks = [];
+			    c = 0;
+			    for (var i = 0; i < 30; i++)
+			        ticks.push(gunSound.cloneNode());
+			    for (var i = 0; i < 30; i++)
+			        ticks[i].load();
+			    glassTicks = [];
+			    glassC = 0;
+			    for (var i = 0; i < 30; i++)
+			        glassTicks.push(glassBreak.cloneNode());
+			    for (var i = 0; i < 30; i++)
+			        glassTicks[i].load();
+			    $('#nem_nyomnam_meg').click(() => {
+			        $('body').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
+			        $('button').css('cursor', 'url(http://www.rw-designer.com/cursor-download.php?id=96994), default');
+			        $('body').css('backgroundImage', 'url(https://i.pinimg.com/originals/40/d8/b9/40d8b91c48a86543c0ddd2b17aa48e37.jpg)');
+			        //$('body').css('backgroundImage', 'url(/icons/40d8b91c48a86543c0ddd2b17aa48e37.jpg)');
+				$('body').css('backgroundSize', 'cover');
+			        $('#nem_nyomnam_meg').css('visibility', 'hidden')
+			        $('.glass').contents().unwrap();
+			        /*
+			        $('body').click( (event) => {
+			        	event.preventDefault();
+			        	missTicks[missC].play();
+			        	missC = (missC + 1)%30;
+			        });
+			        */
+			        glassC = (glassC + 1) % 30;
+			        glassTicks[glassC].play();
+			        $('#iit').click(() => {
+			            window.open('https://iit.bme.hu', '_blank');
+			        });
+			        $('#tnpl').click(() => {
+			            window.open('/sznupdog.zip', '_blank');
+			        });
+			        $('button').click((event) => {
+			            event.preventDefault();
+			            /*
+			            event.stopPropagation();
+			            */
+			            $(event.target).css('visibility', 'hidden');
+			            glassC = (glassC + 1) % 30;
+			            glassTicks[glassC].play();
+			        });
+			        airHorn.play();
+			        $('body').click(() => {
+			            c = (c + 1) % 30;
+			            ticks[c].play();
+			        });
+			    });
+			});
+		</script>
+		<style>
+			html,
+			body {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			background: #2c3e50;
+			font-family: "Montserrat", sans-serif;
+			font-size: 16px;
+			}
+			body {
+			align-items: center;
+			align-content: center;
+			/*overflow: hidden;*/
+			background-image: url(http://rl337.org/wp-content/uploads/2012/07/drunk-duke.png);
+			background-position: 5% 10%;
+			/* The image used */
+			/*background-position: top-left*/
+			;
+			/* Center the image */
+			background-repeat: no-repeat;
+			/* Do not repeat the image */
+			background-size: 15%;
+			/* Resize the background image to cover the entire container */
+			}
+			p {
+			color: #f1c40f;
+			font-size: 1.2rem;
+			width: 100%;
+			text-align: center;
+			}
+			.btn {
+			box-sizing: border-box;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			background-color: transparent;
+			border: 2px solid #e74c3c;
+			border-radius: 0.6em;
+			color: #e74c3c;
+			cursor: pointer;
+			align-self: center;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1;
+			padding: 1.2em 2.8em;
+			text-decoration: none;
+			text-align: center;
+			text-transform: uppercase;
+			font-family: "Montserrat", sans-serif;
+			font-weight: 700;
+			}
+			.btn:hover,
+			.btn:focus {
+			color: #fff;
+			outline: 0;
+			}
+			.first {
+			transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+			}
+			.first:hover {
+			box-shadow: 0 0 40px 40px #e74c3c inset;
+			}
+			.second {
+			border-radius: 3em;
+			border-color: #1abc9c;
+			color: #fff;
+			background-image: linear-gradient(to right, rgba(26, 188, 156, 0.6), rgba(26, 188, 156, 0.6) 5%, #1abc9c 5%, #1abc9c 10%, rgba(26, 188, 156, 0.6) 10%, rgba(26, 188, 156, 0.6) 15%, #1abc9c 15%, #1abc9c 20%, rgba(26, 188, 156, 0.6) 20%, rgba(26, 188, 156, 0.6) 25%, #1abc9c 25%, #1abc9c 30%, rgba(26, 188, 156, 0.6) 30%, rgba(26, 188, 156, 0.6) 35%, #1abc9c 35%, #1abc9c 40%, rgba(26, 188, 156, 0.6) 40%, rgba(26, 188, 156, 0.6) 45%, #1abc9c 45%, #1abc9c 50%, rgba(26, 188, 156, 0.6) 50%, rgba(26, 188, 156, 0.6) 55%, #1abc9c 55%, #1abc9c 60%, rgba(26, 188, 156, 0.6) 60%, rgba(26, 188, 156, 0.6) 65%, #1abc9c 65%, #1abc9c 70%, rgba(26, 188, 156, 0.6) 70%, rgba(26, 188, 156, 0.6) 75%, #1abc9c 75%, #1abc9c 80%, rgba(26, 188, 156, 0.6) 80%, rgba(26, 188, 156, 0.6) 85%, #1abc9c 85%, #1abc9c 90%, rgba(26, 188, 156, 0.6) 90%, rgba(26, 188, 156, 0.6) 95%, #1abc9c 95%, #1abc9c 100%);
+			background-position: 0 0;
+			background-size: 100%;
+			transition: background 300ms ease-in-out;
+			}
+			.second:hover {
+			background-position: 100px;
+			}
+			
+.third {
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  transition: all 150ms ease-in-out;
+}
+.third:hover {
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+}
+			.fourth {
+			border-color: #f1c40f;
+			color: #fff;
+			background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+			background-position: 100%;
+			background-size: 400%;
+			transition: background 300ms ease-in-out;
+			}
+			.fourth:hover {
+			background-position: 0;
+			}
+			.fifth {
+			border-color: #8e44ad;
+			border-radius: 0;
+			color: #8e44ad;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+			transition: color 150ms ease-in-out;
+			}
+			.fifth:after {
+			content: '';
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 50%;
+			-webkit-transform: translateX(-50%);
+			transform: translateX(-50%);
+			width: 0;
+			height: 100%;
+			background: #8e44ad;
+			z-index: -1;
+			transition: width 150ms ease-in-out;
+			}
+			.fifth:hover {
+			color: #fff;
+			}
+			.fifth:hover:after {
+			width: 110%;
+			}
+			a {
+			text-decoration: none;
+			}
+			h1 {
+			margin: 0px;
+			padding-top: 20px;
+			font-size: 2rem;
+			text-align: center;
+			color: white;
+			}
+			.helper {
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+			}
+			.neptun {
+			background: #3A6F9A;
+			vertical-align: middle;
+			max-height: 25px;
+			max-width: 160px;
+			}
+			#iit {
+			position: fixed;
+			top: 75%;
+			left: 78%;
+			height: 25%;
+			width: 20%;
+			border: none;
+			}
+			#tnpl {
+			position: fixed;
+			bottom: 0%;
+			left: 0%;
+			height: 20%;
+			width: 20%;
+			border: none;
+			}
+		</style>
+	</head>
+	<body id="body">
+		<h1>Tárgyak</h1>
+		<p>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://edu.vik.bme.hu/course/view.php?id=2953">
+			<button class="btn fourth">IT eszközök technológiája</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/IT_eszk%C3%B6z%C3%B6k_technol%C3%B3gi%C3%A1ja">
+			<button class="btn first">WIKI</button>
+			</a>
+			<!--<a class="glass" target="_blank" rel="noopener noreferrer" href="">
+			<button class="btn fifth">labor</button>
+			</a>-->
+		</p>
+		<p>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.mit.bme.hu/oktatas/targyak/vimiac10">
+			<button class="btn fourth">Mesterséges intelligencia</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Mesters%C3%A9ges_intelligencia">
+			<button class="btn first">WIKI</button>
+			</a>
+			<!--<a class="glass" target="_blank" rel="noopener noreferrer" href="">
+			<button class="btn fifth">labor</button>
+			</a>-->
+		</p>
+		<p>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="http://kgt.bme.hu/tantargyak/bsc/BMEGT30A001">
+			<button class="btn fourth">Mikro- és makroökonómia</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Mikro-_%C3%A9s_makro%C3%B6kon%C3%B3mia">
+			<button class="btn first">WIKI</button>
+			</a>
+			<!--<a class="glass" target="_blank" rel="noopener noreferrer" href="">
+			<button class="btn fifth">labor</button>
+			</a>-->
+		</p>
+		<p>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.aut.bme.hu/Course/mobilesweb">
+			<button class="btn fourth">Mobil- és webes szoftverek</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Mobil-_%C3%A9s_webes_szoftverek">
+			<button class="btn first">WIKI</button>
+			</a>
+			<!--<a class="glass" target="_blank" rel="noopener noreferrer" href="">
+			<button class="btn fifth">labor</button>
+			</a>-->
+		</p>
+		<p>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="http://www.uti.bme.hu/tantargyak?p_p_id=TantargyLista_WAR_bmeuti&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_TantargyLista_WAR_bmeuti_action=showKurzus&_TantargyLista_WAR_bmeuti_id=6206">
+			<button class="btn fourth">Üzleti jog</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/%C3%9Czleti_jog">
+			<button class="btn first">WIKI</button>
+			</a>
+			<!--<a class="glass" target="_blank" rel="noopener noreferrer" href="">
+			<button class="btn fifth">labor</button>
+			</a>-->
+		</p>
+		<p>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/BSc_Infokommunik%C3%A1ci%C3%B3_specializ%C3%A1ci%C3%B3">
+			<button class="btn third">Infokommunikáció</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.tmit.bme.hu/vihiac00">
+			<button class="btn fourth">Mobil kommunikációs hálózatok</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.tmit.bme.hu/vitmac00">
+			<button class="btn fourth">Hálózatok építése és üzemeltetése</button>
+			</a>
+		</p>
+		<p>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/BSc_Rendszertervez%C3%A9s_specializ%C3%A1ci%C3%B3">
+			<button class="btn third">Rendszertervezés</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="http://inf.mit.bme.hu/edu/courses/rete">
+			<button class="btn fourth">Informatikai rendszertervezés</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/oktatas/tanszeki_targyak/BMEVIIIAC02">
+			<button class="btn fourth">Ipari informatika</button>
+			</a>
+		</p>
+		<p>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/BSc_Szoftverfejleszt%C3%A9s_specializ%C3%A1ci%C3%B3">
+			<button class="btn third">Szoftverfejlesztés</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.aut.bme.hu/Course/adatvezerelt">
+			<button class="btn fourth">Adatvezérelt rendszerek</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.iit.bme.hu/targyak/BMEVIIIAC00">
+			<button class="btn fourth">Objektumorientált szoftvertervezés</button>
+			</a>
+		</p>
+		<p>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/BSc_V%C3%A1llalati_inform%C3%A1ci%C3%B3s_rendszerek_specializ%C3%A1ci%C3%B3">
+			<button class="btn third">Vállalati információs rendszerek</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/Termel%C3%A9sinformatika">
+			<button class="btn fourth">Termelésinformatika</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://vik.wiki/V%C3%A1llalatir%C3%A1ny%C3%ADt%C3%A1si_rendszerek">
+			<button class="btn fourth">Vállalatirányítási rendszerek</button>
+			</a>
+		</p>
+		<p id="blue_buttons">
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://frame.neptun.bme.hu/hallgatoi/Login.aspx">
+			<button class="btn second">Neptun</button>
+			</a>
+			<!--<button id="nem_nyomnam_meg" class="btn second">NEM NYOMNÁM MEG <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/2000px-Speaker_Icon.svg.png" width="13 rem" height="13 rem" /></button>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://www.vik.bme.hu/document/2660/original/ZHutem_osz_2019_06_21_uzinfo.pdf">
+			<button class="btn second">Ütemterv</button>
+			</a>-->
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://docs.google.com/spreadsheets/d/1_rLuP33TcZCpg_4wkCcxbtetmeQNGHAixkCnmXkWB2E/edit?usp=sharing">
+			<button class="btn second">Átlag</button>
+			</a>
+			<a class="glass" target="_blank" rel="noopener noreferrer" href="https://edu.vik.bme.hu/">
+			<button class="btn second">VIK MOODLE</button>
+			</a>
+			<audio id="sound1" src="bells.mp3" preload="auto"></audio>
+			<div style="display: none;"><script>
+				function christmas() {
+					document.getElementById('sound1').play();
+					setTimeout(musicSync, 5600);
+				}
+				function musicSync() {
+					document.body.style.backgroundImage = "url('http://rs303.pbsrc.com/albums/nn132/aivo12/christmastimeagain-anim3.gif~c200')";
+				}
+			</script>
+			<button onclick="christmas()" class="btn second">Christmas Spirit <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/2000px-Speaker_Icon.svg.png" width="13 rem"></button>
+			<a href="http://www.reliablecounter.com" target="_blank"><img src="https://www.reliablecounter.com/count.php?page=bamazon.github.io/&digit=style/plain/1/&reloads=1" alt="" title="" border="0"></a>
+			</div>
+		</p>
+	</body>
+</html>
