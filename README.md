@@ -1,4 +1,4 @@
-# vkhobor.github.io
+# bamazon.github.io
 
-A _data links.yml be lehet a linkeket felvenni
-https://vkhobor.github.io/
+A _data links.yml és footer-links.yml be lehet a linkeket felvenni
+
