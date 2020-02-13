@@ -6,7 +6,7 @@ layout: default
 <div id="main">
     {% for link in site.data.links %}
     <p>
-        <a class="btn btn-primary  btn-lg" target="_blank" href="{{link.url}}">
+        <a class="btn-my-primary btn btn-outline-primary waves-effect  btn-lg" target="_blank" href="{{link.url}}">
             {{link.name}}
         </a>
         {% if link.other %}
@@ -23,7 +23,7 @@ layout: default
 
     <p>
         {% for link in site.data.footer-links %}
-        <a class="btn btn-outline-primary waves-effect btn-lg" target="_blank" href=" {{link.url}}">
+        <a class="btn-footer btn btn-outline-primary waves-effect btn-lg" target="_blank" href=" {{link.url}}">
             {{link.name}}
         </a>
         {% endfor %}

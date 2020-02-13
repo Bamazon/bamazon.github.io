@@ -26,17 +26,22 @@ body {
     padding: 1em;
 }
 
-.btn-outline-primary {
+.btn-footer {
     color: white !important;
     border: 2px solid white !important;
 }
 
-.btn-primary:hover {
+.btn-my-primary:hover {
     background-color: #3797ff !important;
+    border: 2px solid #3797ff !important;
+    color: white !important;
 }
 
-.btn-primary {
+.btn-my-primary {
     font-weight: bold;
+    color: white !important;
+    border: 2px solid #3797ff !important;
+
 }
 
 .btn-outline-secondary:hover {
