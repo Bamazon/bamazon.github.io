@@ -2,6 +2,7 @@
 ### Adatok, linkek hozzáadása
 A [_data](/_data) mappában a links.yml és footer-links.yml be lehet a linkeket felvenni
 - [normal links](/_data/links.yml)
+  - Ha a name: WIKI - akkor piros lesz az oldalon
 - [footer links](/_data/footer-links.yml)
 ### Egyéb help
 - A [_layouts](/_layouts) mappában van a kiinduló [default.html](/_layouts/default.html) template.
