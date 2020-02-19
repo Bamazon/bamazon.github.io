@@ -50,6 +50,7 @@ body {
 }
 
 .btn-outline-danger:hover {
+     border: 2px solid red !important;
     background-color: red !important;
     color: white !important;
 }
