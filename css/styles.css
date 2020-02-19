@@ -54,6 +54,10 @@ body {
     color: white !important;
 }
 
+.btn-outline-danger {
+    border: 2px solid red !important;
+    }
+
 #old
 {
 float:right;
