@@ -33,6 +33,9 @@ github_username:  jekyll
 theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
+collections:
+   people:
+    output: true 
 
 # Exclude from processing.
 # The following items will not be processed, by default.
