@@ -1,6 +1,6 @@
 - name: 3D grafikus rendszerek
   url: https://edu.vik.bme.hu/course/view.php?id=4235
-  font-awesome-class: fa-vr-cardboard
+  font-awesome-class: fa-cube
 
 
 - name: It biztonság
