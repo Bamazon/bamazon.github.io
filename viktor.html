@@ -4,14 +4,15 @@ main-links:
 
 - name: Blockchain Technológiák
   url: https://inf.mit.bme.hu/edu/courses/blockchain
-  font-awesome-class: fa-bitcoin
+  font-awesome-class: fa-link
   
       
 - font-awesome-class: fa-greater-than-equal
   name: Rendszeroptimalizálás
   url: http://www.cs.bme.hu/rendszeropt/
 
-- font-awesome-class: fa-book
+- font-awesome-class: fa-vial
+  name: Technológia és társadalom
   url: https://www.filozofia.bme.hu/orak/3214
   other: 
     - name: Moodle
@@ -61,29 +62,11 @@ main-links:
 
 
 
-footer-links: 
-  - name: Neptun
-    url: https://frame.neptun.bme.hu/hallgatoi/login.aspx
-
-  - name: Vik moodle
-    url: https://edu.vik.bme.hu/
-
-  - name: GTK MOODLE
-    url: https://edu.gtk.bme.hu/
-
-  - name: Vik WIKI
-    url: https://vik.wiki/Kezd%C5%91lap
-    
-  - name: Ütemterv
-    url: https://www.vik.bme.hu/document/2660/original/ZHutem_osz_2019_06_21_uzinfo.pdf
-  - name: Átlag
-    url: https://docs.google.com/spreadsheets/d/1_rLuP33TcZCpg_4wkCcxbtetmeQNGHAixkCnmXkWB2E/edit?usp=sharing
-
 ---
 
 <h1>Tárgyak</h1>
 <div class="container-lg my-5">
-    {% for link in site.data.links %}
+    {% for link in page.main-links %}
     <p class="row d-flex justify-content-center align-items-center">
         <i class="fas {{link.font-awesome-class}} fa-2x mr-3"></i> 
         <a class="btn-my-primary btn btn-outline-primary waves-effect  btn-lg " target="_blank" href="{{link.url}}">
