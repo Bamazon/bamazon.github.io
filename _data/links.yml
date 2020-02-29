@@ -1,32 +1,38 @@
 - name: 3D grafikus rendszerek
   url: https://edu.vik.bme.hu/course/view.php?id=4235
+  font-awesome-class: fa-vr-cardboard
 
 
 - name: It biztonság
   url: https://www.crysys.hu/education/VIHIAC01
+  font-awesome-class: fa-user-secret
   other:
     - name: WIKI
       url: https://vik.wiki/IT_biztons%C3%A1g  
 
-- name: Integrációs és ellenőrzési technikák
+- font-awesome-class: fa-project-diagram
+  name: Integrációs és ellenőrzési technikák
   url: https://www.mit.bme.hu/oktatas/targyak/vimiac04
   other:
     - name: WIKI
       url: https://vik.wiki/Integr%C3%A1ci%C3%B3s_%C3%A9s_ellen%C5%91rz%C3%A9si_technik%C3%A1k
       
-- name: Kliens oldali technológiák
+- font-awesome-class: fa-window-maximize
+  name: Kliens oldali technológiák
   url: 
   other:
     - name: WIKI
       url: https://vik.wiki/Kliens_oldali_technol%C3%B3gi%C3%A1k
       
-- name: Dokumentumszerkesztés
+- font-awesome-class: fa-book-open
+  name: Dokumentumszerkesztés
   url: https://www.hit.bme.hu/page/VIHIJV47
   other:
     - name: Moodle
       url: https://moodle.hit.bme.hu/course/view.php?id=327
       
-- name: Szoftverfejlesztés laboratórium 1
+- font-awesome-class: fa-database
+  name: Szoftverfejlesztés laboratórium 1
   url: https://www.aut.bme.hu/Course/szoftverlabor1
   other:
     - name: WIKI
@@ -34,7 +40,8 @@
     - name: Labor
       url: https://bmeviauac01.github.io/laborok/
       
-- name: Információs rendszerek üzemeltetése
+- font-awesome-class: fa-network-wired
+  name: Információs rendszerek üzemeltetése
   url: https://www.tmit.bme.hu/vitmac02
   other:
     - name: WIKI
