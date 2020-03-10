@@ -1,33 +1,5 @@
 ---
-layout: default
+layout: index
 ---
 
-<h1>Tárgyak</h1>
-<div class="container-lg my-5">
-    {% for link in site.data.links %}
-    <p class="row d-flex justify-content-center align-items-center">
-        <i class="fas {{link.font-awesome-class}} fa-2x mr-3"></i> 
-        <a class="btn-my-primary btn btn-outline-primary waves-effect  btn-lg " target="_blank" href="{{link.url}}">
-           {{link.name}}
-        </a>
-        {% if link.other %}
-        {% for link in link.other %}
-        <a target="_blank"
-            class="btn  {% if link.name == "WIKI" %} btn-outline-danger waves-effect{% else %} btn-outline-secondary waves-effect{% endif %} btn-lg "
-            href="{{link.url}}">
-            {{link.name}}
-        </a>
-        {% endfor %}
-        {% endif %}
-    </p>
-    {% endfor %}
 
-    <p>
-        {% for link in site.data.footer-links %}
-        <a class="btn-footer btn btn-outline-primary waves-effect btn-lg" target="_blank" href=" {{link.url}}">
-            {{link.name}}
-        </a>
-        {% endfor %}
-
-    </p>
-</div>
