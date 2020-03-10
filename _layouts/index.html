@@ -14,7 +14,7 @@
     <div id="old"> <a href="{{ site.baseurl }}{% link old.html %}">
         old
     </a></div>
-    <h1>Szemeszterek</h1>
+    <h1>Mérnökinfó félévek</h1>
 <div class="container-lg my-5">
     
     {% for semester in site.semesters %}
@@ -26,11 +26,11 @@
     {% assign fa-class = semester.fa-class | prepend: "fa-" %}
     {% endif %}
     
-    
+
     <p class="row d-flex justify-content-center align-items-center">
         <i class="fas {{fa-class | default: "fa-caret-right"}} fa-2x mr-3"></i> 
         <a class="btn-my-primary btn btn-outline-primary waves-effect  btn-lg "  href="{{semester.url}}">
-           {{semester.number}}. szemeszter
+           Félév {{semester.semester-num}}
         </a>
        
     </p>
