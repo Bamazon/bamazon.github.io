@@ -59,6 +59,10 @@ body {
     border: 2px solid red !important;
     }
 
+.footer{
+    padding-top: 2rem;
+}
+
 #old
 {
 float:right;
