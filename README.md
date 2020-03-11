@@ -1,7 +1,6 @@
 ## [Bamazon.github.io](https://bamazon.github.io/)
 ### Adatok, linkek hozzáadása
-A [_semesters](/my_collections/_semesters) mappában egy szemeszterhez lehet a linkeket felvenni
-  - Ha others-ön belül ha name: WIKI - akkor piros lesz az oldalon
+  - [Excel](https://docs.google.com/spreadsheets/d/1dR03owwYSJVojqfIJJq9nZOBsAiXAOAkEn4opRk4wgE/edit?usp=sharing)
   - [footer links](/_data/footer-links.yml)
 
 
