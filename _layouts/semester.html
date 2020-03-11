@@ -51,7 +51,7 @@
             $.each(entry.filter(
                 function (el) {
                     return el.gsx$semester.$t == "{{page.semester-num}}";
-                }),
+                }).reverse(),
                 function (index, value) {
 
                     $('.container-lg').prepend(` <p id="${index}" class="row d-flex justify-content-center align-items-center">
