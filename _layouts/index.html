@@ -37,7 +37,15 @@
         {% endfor %}
    
     
-
+  
+        <p>
+            {% for link in site.data.footer-links %}
+            <a class="btn-footer btn btn-outline-primary waves-effect btn-lg" target="_blank" href=" {{link.url}}">
+                {{link.name}}
+            </a>
+            {% endfor %}
+    
+        </p>
 </div>
 
 {% include script-include.html %}

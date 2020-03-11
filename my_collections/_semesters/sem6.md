@@ -2,7 +2,7 @@
 layout: semester
 semester-num: 6
 fa-class: fa-bong
-pagetitle: 6.félév tárgyai gec ez nincs középen
+pagetitle: Tárgyak
 links:
   - name: 3D grafikus rendszerek
     url: https://edu.vik.bme.hu/course/view.php?id=4235

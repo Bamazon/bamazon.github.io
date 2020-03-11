@@ -19,10 +19,32 @@
 
 
 
-     
+        {% for link in page.links %}
 
 
-       
+        {% assign fa-class = link.fa-class %}
+        {% assign fa-class-first = link.fa-class | split: "-" | first %}
+        {% if fa-class-first!="fa" and fa-class %}
+        {% assign fa-class = semester.fa-class | prepend: "fa-" %}
+        {% endif %}
+
+        <p class="row d-flex justify-content-center align-items-center">
+            <i class="fas {{fa-class | default: "fa-lemon"}} fa-2x mr-3"></i>
+            <a class="btn-my-primary btn btn-outline-primary waves-effect  btn-lg " target="_blank" href="{{link.url}}">
+                {{link.name}}
+            </a>
+            {% if link.other %}
+            {% for link in link.other %}
+            <a target="_blank"
+                class="btn  {% if link.name == "WIKI" %} btn-outline-danger waves-effect{% else %} btn-outline-secondary waves-effect{% endif %} btn-lg "
+                href="{{link.url}}">
+                {{link.name}}
+            </a>
+            {% endfor %}
+            {% endif %}
+
+        </p>
+        {% endfor %}
 
 
         <p>
