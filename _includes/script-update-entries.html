@@ -1,0 +1,73 @@
+<script>
+    function isEmpty(str) {
+        return (!str || 0 === str.length || !str.replace(/\s/g, '').length);
+    }
+
+    var url = "https://spreadsheets.google.com/feeds/list/1dR03owwYSJVojqfIJJq9nZOBsAiXAOAkEn4opRk4wgE/1/public/full?alt=json";
+    function updateEntries() {
+        $.getJSON(url, function (data) {
+
+            var entry = data.feed.entry;
+            var titles = [];
+            var keys = [];
+            Object.keys(data.feed.entry[0]).forEach(element => {
+                if (element.startsWith("gsx$")) {
+                    titles.push(element.substr(4))
+                    keys.push(element)
+                }
+
+            });
+
+            $.each(entry.filter(
+                function (el) {
+                    return el.gsx$semester.$t == "{{page.semester-num}}";
+                }).reverse(),
+                function (index, value) {
+
+                    if (!isEmpty(this.gsx$name.$t)) {
+                        $('.container-lg').prepend(` <p id="${index}" class="row d-flex justify-content-center align-items-center"></p>`);
+
+                        $(`#${index}`).append(`<a class="btn-my-primary btn btn-outline-primary waves-effect  btn-lg " target="_blank" href="${this.gsx$link.$t}">
+        ${this.gsx$name.$t}
+    </a>`);
+                        $(`#${index}`).prepend(`  <i class="fas fa-anchor fa-2x mr-3"></i> `);
+
+
+                        keys.forEach(element => {
+                            if (element !== "gsx$link" && element !== "gsx$name" && element !== "gsx$semester") {
+                                switch (element) {
+                                    case "gsx$wiki":
+                                    if (!isEmpty(this[element].$t)) {
+                                        $(`#${index}`).append(`<a target="_blank"
+        class="btn   btn-outline-danger waves-effect btn-lg "
+        href="${this.gsx$wiki.$t}">
+       WIKI
+    </a>`);}
+                                        break;
+                                    case "gsx$faclass":
+                                        $(`#${index} > .fas`).removeClass("fa-anchor");
+                                        $(`#${index} > .fas`).addClass(this.gsx$faclass.$t);
+                                        break;
+                                    default:
+                                        if (!isEmpty(this[element].$t) && !element.substr(4).startsWith("hidden-")) {
+                                            $(`#${index}`).append(`<a target="_blank"
+        class="btn   btn-outline-secondary waves-effect btn-lg "
+        href="${this[element].$t}">
+        ${element.substr(4)}
+    </a>`);
+                                        }
+                                        break;
+                                }
+
+                            }
+
+                        });
+                    }
+
+
+
+                });
+
+        });
+    }
+</script>

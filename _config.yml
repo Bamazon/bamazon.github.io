@@ -33,6 +33,7 @@ github_username:  jekyll
 theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
 collections:
     semesters:
       output: true 
