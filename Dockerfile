@@ -1,3 +1,3 @@
 FROM jekyll/jekyll
-RUN bundle update /
-	install /
+RUN bundle update
+RUN bundle install 
