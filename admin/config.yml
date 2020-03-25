@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Bamazon/bamazon.github.io 
   branch: master # Branch to update (optional; defaults to master)
 media_folder: "/image/uploads" # Media files will be stored in the repo under static/images/uploads
 collections:
