@@ -1,5 +1,8 @@
 backend:
-  name: test-repo
+  name: github
+  repo: bamazon/bamazon.github.io
+  branch: master
+  site_domain: adoring-murdock-e75973.netlify.com
 media_folder: "/image/uploads" # Media files will be stored in the repo under static/images/uploads
 collections:
   - name: "semesters" # Used in routes, e.g., /admin/collections/blog
