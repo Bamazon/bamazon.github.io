@@ -59,68 +59,7 @@
     </div>
     <div class="results"></div>
     {% include script-include.html %}
-    <script>
-        function isEmpty(str) {
-            return (!str || 0 === str.length);
-        }
-
-        var url = "https://spreadsheets.google.com/feeds/list/1dR03owwYSJVojqfIJJq9nZOBsAiXAOAkEn4opRk4wgE/1/public/full?alt=json";
-
-        $.getJSON(url, function (data) {
-
-            var entry = data.feed.entry;
-
-            $.each(entry.filter(
-                function (el) {
-                    return el.gsx$semester.$t == "{{page.semester-num}}";
-                }),
-                function (index, value) {
-
-                    $('.container-lg').prepend(` <p id="${index}" class="row d-flex justify-content-center align-items-center">
-        
-        <a class="btn-my-primary btn btn-outline-primary waves-effect  btn-lg " target="_blank" href="${this.gsx$link.$t}">
-            ${this.gsx$name.$t}
-        </a></p>
-       `);
-                    if (!isEmpty(this.gsx$wiki.$t)) {
-                        $(`#${index}`).append(`<a target="_blank"
-            class="btn   btn-outline-danger waves-effect btn-lg "
-            href="${this.gsx$wiki.$t}">
-           WIKI
-        </a>`);
-                    }
-
-                    if (!isEmpty(this.gsx$labor.$t)) {
-                        $(`#${index}`).append(`<a target="_blank"
-            class="btn   btn-outline-secondary waves-effect btn-lg "
-            href="${this.gsx$labor.$t}">
-           Labor
-        </a>`);
-                    }
-                    $(`#${index}`).prepend(`  <i class="fas fa-anchor fa-2x mr-3"></i> `);
-                
-
-        if (!isEmpty(this.gsx$faclass.$t)) {
-                $(`#${index} > .fas`).removeClass(fa - anchor);
-                $(`#${index} > .fas`).addClass(this.gsx$faclass.$t);
-
-            }
-
-            if (!isEmpty(this.gsx$moodle.$t)) {
-                $(`#${index}`).append(`<a target="_blank"
-            class="btn    btn-outline-secondary waves-effect btn-lg "
-            href="${this.gsx$moodle.$t}">
-           Moodle
-        </a>`);
-            }
-
-        });
-
-    });
-    </script>
-
-
-
+    
 </body>
 
 </html>

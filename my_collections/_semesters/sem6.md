@@ -1,5 +1,5 @@
 ---
-layout: semester
+layout: semester_arch
 semester-num: 6
 fa-class: fa-bong
 pagetitle: Tárgyak
