@@ -26,6 +26,8 @@ links:
     other:
       - name: WIKI
         url: 'https://vik.wiki/Kliens_oldali_technol%C3%B3gi%C3%A1k'
+      - name: Moodle
+        url: 'https://edu.vik.bme.hu/course/view.php?id=3726'
   - fa-class: fa-book-open
     name: Dokumentumszerkesztés
     url: 'https://www.hit.bme.hu/page/VIHIJV47'
