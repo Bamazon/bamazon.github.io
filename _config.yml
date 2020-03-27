@@ -38,6 +38,12 @@ collections:
     semesters:
       output: true 
 collections_dir: my_collections
+defaults:
+ - scope:
+    path: ""
+    type: "semesters"
+   values:
+    layout: "semester-default"
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
