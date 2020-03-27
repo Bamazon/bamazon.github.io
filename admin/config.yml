@@ -66,3 +66,10 @@ collections:
              widget: string
            - label: "URL"
              name: url
+     - label: "Old page semester"
+       name: "old"
+       file: old.html
+       fields:
+        - label: "Semester"
+          name: "semester-num"
+          widget: "number"
