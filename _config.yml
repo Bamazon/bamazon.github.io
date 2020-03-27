@@ -39,7 +39,8 @@ collections:
       output: true 
 collections_dir: my_collections
 defaults:
- - scope:
+ - 
+  scope:
     path: ""
     type: "semesters"
    values:
