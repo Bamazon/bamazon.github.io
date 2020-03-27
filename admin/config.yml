@@ -53,5 +53,20 @@ collections:
              - label: "URL"
                name: url
                widget: "string"
-
-  
+  - name: "common-data" # Used in routes, e.g., /admin/collections/blog
+    label: "Common Data" # Used in the UI
+    files:
+     - label: "Footer Links"
+       name: footer-links
+       file: _data/footer-links.yml
+       fields:
+        - label: "Links"
+          name: "links"
+          widget: "list"
+          allow_add: true
+          fields:
+           - label: "Name"
+             name: name
+             widget: string
+           - label: "URL"
+             name: url
