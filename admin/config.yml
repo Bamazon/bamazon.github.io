@@ -8,14 +8,14 @@ collections:
   - name: "semesters" # Used in routes, e.g., /admin/collections/blog
     identifier_field: semester-num
     label: "Semesters" # Used in the UI
-    folder: "my_collections/_semesters" # The path to the folder where the documents are stored
+    folder: "/_semesters" # The path to the folder where the documents are stored
     create: false # Allow users to create new documents in this collection
     slug: "sem{{semester-num}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - label: "Layout"
         name: "layout"
-        widget: "string"
-        default: "semester"
+        widget: "hidden"
+        default: "semester-default"
 
       - label: "Semester"
         name: "semester-num"
@@ -53,11 +53,12 @@ collections:
              - label: "URL"
                name: url
                widget: "string"
+
   - name: "common-data" # Used in routes, e.g., /admin/collections/blog
     label: "Common Data" # Used in the UI
     files:
      - label: "Footer Links"
-       name: footer-links
+       name: "footer-links"
        file: _data/footer-links.yml
        fields:
         - label: "Links"
@@ -66,7 +67,15 @@ collections:
           allow_add: true
           fields:
            - label: "Name"
-             name: name
-             widget: string
+             name: "name"
+             widget: "string"
            - label: "URL"
-             name: url
+             name: "url"
+             widget: string
+     - label: "Old page semester"
+       name: "old"
+       file: old.html
+       fields:
+        - label: "Semester"
+          name: "semester-num"
+          widget: "number"

@@ -2,7 +2,7 @@
 semester-num: 6
 fa-class: fa-bong
 pagetitle: Tárgyak
-permalink: /
+layout: 
 links:
   - name: 3D grafikus rendszerekk
     url: 'https://edu.vik.bme.hu/course/view.php?id=4235'

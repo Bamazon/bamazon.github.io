@@ -1,6 +1,17 @@
 ---
 layout: null
+semester-num: 6
+
+
 ---
+
+{% for semester in site.semesters %}
+{% if semester.semester-num==6 %}
+{% assign links=semester.links %}
+{% endif %}
+{% endfor %}
+
+
 
 <!DOCTYPE html>
 <html>
@@ -408,7 +419,7 @@ layout: null
 	</head>
 	<body id="body">
 		<h1>Tárgyak</h1>
-{% for link in site.data.links %}
+{% for link in links %}
 <p>
     <a class="glass" target="_blank" rel="noopener noreferrer" href="{{link.url}}">
     <button class="btn fourth">{{link.name}}</button>
