@@ -435,7 +435,7 @@ semester-num: 6
 {% endfor %}
 		
 		<p id="blue_buttons">
-			{% for link in site.data.footer-links %}
+			{% for link in site.data.footer-links.links %}
 			<a class="glass" target="_blank" rel="noopener noreferrer" href=" {{link.url}}">
 				<button class="btn second">{{link.name}}</button>
 			</a>

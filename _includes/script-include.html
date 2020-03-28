@@ -15,11 +15,11 @@ if (typeof updateEntries === "function") {
        // Removes focus of the button.
       $(this).blur();});
    
-
+$(".open-button").click(function () {
+    $("#tlkio").toggle();
+    $(this).toggleClass("open-button-up");
    
-  
-   
-
+});
 });
 
 
