@@ -1,15 +1,13 @@
 links:
- - name: Neptun
-   url: https://frame.neptun.bme.hu/hallgatoi/login.aspx
-   
- - name: Vik moodle
-   url: https://edu.vik.bme.hu/
- 
- - name: GTK MOODLE
-   url: https://edu.gtk.bme.hu/
- - name: Ütemterv
-   url: https://www.vik.bme.hu/document/3150/original/ZHutem_tavasz_2020_02_08_info.pdf
- - name: Átlag
-   url: https://docs.google.com/spreadsheets/d/1_rLuP33TcZCpg_4wkCcxbtetmeQNGHAixkCnmXkWB2E/edit?usp=sharing
- - name: szerkeszt
-   url: https://docs.google.com/spreadsheets/d/1dR03owwYSJVojqfIJJq9nZOBsAiXAOAkEn4opRk4wgE/edit#gid=999365934&fvid=39060284
+  - name: Neptun
+    url: 'https://frame.neptun.bme.hu/hallgatoi/login.aspx'
+  - name: Vik moodle
+    url: 'https://edu.vik.bme.hu/'
+  - name: GTK MOODLE
+    url: 'https://edu.gtk.bme.hu/'
+  - name: Ütemterv
+    url: >-
+      https://www.vik.bme.hu/document/3150/original/ZHutem_tavasz_2020_02_08_info.pdf
+  - name: Átlag
+    url: >-
+      https://docs.google.com/spreadsheets/d/1_rLuP33TcZCpg_4wkCcxbtetmeQNGHAixkCnmXkWB2E/edit?usp=sharing
