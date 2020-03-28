@@ -1,0 +1,3 @@
+tasks:
+  - init: bundle update && bundle install
+    command: bundle exec jekyll serve
