@@ -77,7 +77,7 @@ top: 0;
 }
 
 #nav{margin: 0.7rem;}
-body > h1{ padding: 0.2rem;}
+body > h1{ padding: 1rem;}
 
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
@@ -126,3 +126,4 @@ body > h1{ padding: 0.2rem;}
 .blue{
     color: #3797ff;
 }
+
