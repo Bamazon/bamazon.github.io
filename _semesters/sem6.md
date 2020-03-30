@@ -8,12 +8,12 @@ links:
   - name: 3D grafikus rendszerek
     url: 'https://edu.vik.bme.hu/course/view.php?id=4235'
     fa-class: fa-cube
-  - name: It biztonság
-    url: 'https://www.crysys.hu/education/VIHIAC01'
-    fa-class: fa-user-secret
+  - fa-class: fa-book-open
+    name: Dokumentumszerkesztés
+    url: 'https://www.hit.bme.hu/page/VIHIJV47'
     other:
-      - name: WIKI
-        url: 'https://vik.wiki/IT_biztons%C3%A1g'
+      - name: Moodle
+        url: 'https://moodle.hit.bme.hu/course/view.php?id=327'
   - fa-class: fa-project-diagram
     name: Integrációs és ellenőrzési technikák
     url: 'https://www.mit.bme.hu/oktatas/targyak/vimiac04'
@@ -21,6 +21,8 @@ links:
       - name: WIKI
         url: >-
           https://vik.wiki/Integr%C3%A1ci%C3%B3s_%C3%A9s_ellen%C5%91rz%C3%A9si_technik%C3%A1k
+      - name: Hf portál
+        url: 'https://hf.mit.bme.hu:4443/hallgato/vimiac04'
   - fa-class: fa-window-maximize
     name: Kliens oldali technológiák
     url: 'https://www.aut.bme.hu/Course/kliensoldali'
@@ -29,12 +31,16 @@ links:
         url: 'https://vik.wiki/Kliens_oldali_technol%C3%B3gi%C3%A1k'
       - name: Moodle
         url: 'https://edu.vik.bme.hu/course/view.php?id=3726'
-  - fa-class: fa-book-open
-    name: Dokumentumszerkesztés
-    url: 'https://www.hit.bme.hu/page/VIHIJV47'
+  - name: It biztonság
+    url: 'https://www.crysys.hu/education/VIHIAC01'
+    fa-class: fa-user-secret
     other:
+      - name: WIKI
+        url: 'https://vik.wiki/IT_biztons%C3%A1g'
+      - name: Avatao
+        url: 'https://platform.avatao.com/log-in'
       - name: Moodle
-        url: 'https://moodle.hit.bme.hu/course/view.php?id=327'
+        url: 'https://moodle.hit.bme.hu/'
   - fa-class: fa-database
     name: Szoftverfejlesztés laboratórium 1
     url: 'https://www.aut.bme.hu/Course/szoftverlabor1'
