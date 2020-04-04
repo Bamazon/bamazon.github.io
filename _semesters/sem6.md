@@ -40,6 +40,8 @@ links:
         url: 'https://vik.wiki/Szoftverfejleszt%C3%A9s_laborat%C3%B3rium_1'
       - name: Labor
         url: 'https://bmeviauac01.github.io/laborok/'
+      - name: Moodle
+        url: 'https://edu.vik.bme.hu/course/view.php?id=3813'
   - fa-class: fa-network-wired
     name: Információs rendszerek üzemeltetése
     url: 'https://www.tmit.bme.hu/vitmac02'
@@ -49,6 +51,8 @@ links:
           https://vik.wiki/Inform%C3%A1ci%C3%B3s_rendszerek_%C3%BCzemeltet%C3%A9se
       - name: Labor
         url: 'http://www.medialab.bme.hu/newLabor/'
+      - name: Moodle
+        url: 'https://edu.vik.bme.hu/course/view.php?id=4452'
   - fa-class: fa-project-diagram
     name: Integrációs és ellenőrzési technikák
     url: 'https://www.mit.bme.hu/oktatas/targyak/vimiac04'
