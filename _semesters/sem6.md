@@ -14,7 +14,7 @@ links:
     other:
       - name: Moodle
         url: 'https://moodle.hit.bme.hu/course/view.php?id=327'
-  - fa-class: fa-window-maximize
+  - fa-class: fa-angular
     name: Kliens oldali technológiák
     url: 'https://www.aut.bme.hu/Course/kliensoldali'
     other:
@@ -52,7 +52,7 @@ links:
         url: 'http://www.medialab.bme.hu/newLabor/'
       - name: Moodle
         url: 'https://edu.vik.bme.hu/course/view.php?id=4452'
-  - fa-class: fa-database
+  - fa-class: fa-code
     name: Szoftverfejlesztés laboratórium 1
     url: 'https://www.aut.bme.hu/Course/szoftverlabor1'
     other:
