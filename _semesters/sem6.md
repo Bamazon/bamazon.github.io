@@ -32,16 +32,15 @@ links:
         url: 'https://platform.avatao.com/log-in'
       - name: Moodle
         url: 'https://moodle.hit.bme.hu/'
-  - fa-class: fa-database
-    name: Szoftverfejlesztés laboratórium 1
-    url: 'https://www.aut.bme.hu/Course/szoftverlabor1'
+  - fa-class: fa-project-diagram
+    name: Integrációs és ellenőrzési technikák
+    url: 'https://www.mit.bme.hu/oktatas/targyak/vimiac04'
     other:
       - name: WIKI
-        url: 'https://vik.wiki/Szoftverfejleszt%C3%A9s_laborat%C3%B3rium_1'
-      - name: Labor
-        url: 'https://bmeviauac01.github.io/laborok/'
-      - name: Moodle
-        url: 'https://edu.vik.bme.hu/course/view.php?id=3813'
+        url: >-
+          https://vik.wiki/Integr%C3%A1ci%C3%B3s_%C3%A9s_ellen%C5%91rz%C3%A9si_technik%C3%A1k
+      - name: Hf portál
+        url: 'https://hf.mit.bme.hu:4443/hallgato/vimiac04'
   - fa-class: fa-network-wired
     name: Információs rendszerek üzemeltetése
     url: 'https://www.tmit.bme.hu/vitmac02'
@@ -53,13 +52,14 @@ links:
         url: 'http://www.medialab.bme.hu/newLabor/'
       - name: Moodle
         url: 'https://edu.vik.bme.hu/course/view.php?id=4452'
-  - fa-class: fa-project-diagram
-    name: Integrációs és ellenőrzési technikák
-    url: 'https://www.mit.bme.hu/oktatas/targyak/vimiac04'
+  - fa-class: fa-database
+    name: Szoftverfejlesztés laboratórium 1
+    url: 'https://www.aut.bme.hu/Course/szoftverlabor1'
     other:
       - name: WIKI
-        url: >-
-          https://vik.wiki/Integr%C3%A1ci%C3%B3s_%C3%A9s_ellen%C5%91rz%C3%A9si_technik%C3%A1k
-      - name: Hf portál
-        url: 'https://hf.mit.bme.hu:4443/hallgato/vimiac04'
+        url: 'https://vik.wiki/Szoftverfejleszt%C3%A9s_laborat%C3%B3rium_1'
+      - name: Labor
+        url: 'https://bmeviauac01.github.io/laborok/'
+      - name: Moodle
+        url: 'https://edu.vik.bme.hu/course/view.php?id=3813'
 ---
