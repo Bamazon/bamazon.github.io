@@ -22,6 +22,8 @@ links:
         url: https://vik.wiki/Kliens_oldali_technol%C3%B3gi%C3%A1k
       - name: Moodle
         url: https://edu.vik.bme.hu/course/view.php?id=3726
+      - name: Házi kiírás
+        url: https://edu.vik.bme.hu/pluginfile.php/93685/mod_resource/content/1/H%C3%A1zifeladat.pdf
   - name: It biztonság
     url: https://www.crysys.hu/education/VIHIAC01
     fa-class: fa-user-secret
