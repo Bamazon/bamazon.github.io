@@ -64,6 +64,6 @@ links:
         url: https://vik.wiki/Integr%C3%A1ci%C3%B3s_%C3%A9s_ellen%C5%91rz%C3%A9si_technik%C3%A1k
       - name: Hf portál
         url: https://hf.mit.bme.hu:4443/hallgato/vimiac04
-      - name: Házi oldal
+      - name: Ellenőrzés hf
         url: https://www.mit.bme.hu/oktatas/targyak/vimiac04/hazi-feladat
 ---
