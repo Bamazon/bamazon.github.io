@@ -14,6 +14,8 @@ links:
     other:
       - name: Moodle
         url: https://moodle.hit.bme.hu/course/view.php?id=327
+      - name: Házi kiírás
+        url: https://moodle.hit.bme.hu/pluginfile.php/71244/mod_resource/content/3/nagyhf.pdf
   - fa-class: fa-window-restore
     name: Kliens oldali technológiák
     url: https://www.aut.bme.hu/Course/kliensoldali
@@ -42,6 +44,8 @@ links:
         url: https://vik.wiki/Integr%C3%A1ci%C3%B3s_%C3%A9s_ellen%C5%91rz%C3%A9si_technik%C3%A1k
       - name: Hf portál
         url: https://hf.mit.bme.hu:4443/hallgato/vimiac04
+      - name: Házi oldal
+        url: https://www.mit.bme.hu/oktatas/targyak/vimiac04/hazi-feladat
   - fa-class: fa-network-wired
     name: Információs rendszerek üzemeltetése
     url: https://www.tmit.bme.hu/vitmac02
