@@ -1,7 +1,11 @@
 GEM
   remote: https://rubygems.org/
   specs:
+<<<<<<< HEAD
     activesupport (6.0.3.3)
+=======
+    activesupport (6.0.3.1)
+>>>>>>> 0e31c3ca83f22f0973dd92b4f51fe207920276c1
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -208,7 +212,11 @@ GEM
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
+<<<<<<< HEAD
     minitest (5.14.2)
+=======
+    minitest (5.14.1)
+>>>>>>> 0e31c3ca83f22f0973dd92b4f51fe207920276c1
     multipart-post (2.1.1)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
@@ -254,7 +262,11 @@ GEM
     unf_ext (0.0.7.7-x64-mingw32)
     unicode-display_width (1.7.0)
     wdm (0.1.1)
+<<<<<<< HEAD
     zeitwerk (2.4.0)
+=======
+    zeitwerk (2.3.0)
+>>>>>>> 0e31c3ca83f22f0973dd92b4f51fe207920276c1
 
 PLATFORMS
   ruby
