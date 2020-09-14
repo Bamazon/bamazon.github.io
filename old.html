@@ -1,12 +1,10 @@
 ---
 layout: null
-semester-num: 6
-
-
+semester-num: 7
 ---
 
 {% for semester in site.semesters %}
-{% if semester.semester-num==6 %}
+{% if semester.semester-num==semester-num %}
 {% assign links=semester.links %}
 {% endif %}
 {% endfor %}
