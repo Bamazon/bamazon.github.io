@@ -1,7 +1,9 @@
 ---
 semester-num: 7
 fa-class: fa-ambulance
+pagetitle: Tárgyak
 links:
-permalink: /
-
+  - url: http://smartlab.tmit.bme.hu/oktatas-beszedinformacios-rendszerek
+    name: BeszédInformáiós rendszerek
+    fa-class: pastafarianism
 ---
