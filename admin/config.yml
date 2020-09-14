@@ -79,10 +79,3 @@ collections:
         - label: "Semester"
           name: "semester-num"
           widget: "number"
-     - label: "Index semester"
-       name: "index"
-       file: index.html
-       fields:
-        - label: "Semester"
-          name: "semester-num"
-          widget: "number"
