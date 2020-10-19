@@ -13,6 +13,8 @@ links:
     other:
       - name: Aut segéd
         url: https://zarovizsga.aut.bme.hu
+      - name: Aut gyik és sablon
+        url: https://www.aut.bme.hu/Pages/Gyik/Diploma
   - name: Beágyazott információs rendszerek
     url: http://www.mit.bme.hu/oktatas/targyak/vimiad00
     fa-class: microchip
