@@ -14,7 +14,8 @@ body {
     align-content: center;
     text-align: center;
     color: white;
-    background-image: url(https://user-images.githubusercontent.com/2546640/56708992-deee8780-66ec-11e9-9991-eb85abb1d10a.png), linear-gradient(to bottom right, #0D324D, #082235);
+    /*background-image: url(https://user-images.githubusercontent.com/2546640/56708992-deee8780-66ec-11e9-9991-eb85abb1d10a.png) , linear-gradient(to bottom right, #0D324D, #082235); */
+    background-color: #0A2940;
     /* Standard syntax (must be last) */
     background-size: 15%, cover;
     background-repeat: no-repeat;
@@ -126,4 +127,6 @@ body > h1{ padding: 1rem;}
 .blue{
     color: #3797ff;
 }
-
+.counterboi{
+    margin-bottom: 3em;
+}
